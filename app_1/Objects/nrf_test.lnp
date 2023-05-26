@@ -1,8 +1,10 @@
 --cpu=Cortex-M4.fp.sp
 ".\objects\main.o"
+".\objects\it.o"
 ".\objects\nrf_drv_uart.o"
 ".\objects\nrfx_uart.o"
 ".\objects\nrfx_uarte.o"
+".\objects\nrfx_gpiote.o"
 ".\objects\arm_startup_nrf52840.o"
 ".\objects\system_nrf52.o"
 --library_type=microlib --strict --scatter ".\Objects\nrf_test.sct"

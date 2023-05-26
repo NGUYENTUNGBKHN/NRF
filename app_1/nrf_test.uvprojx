@@ -10,7 +10,7 @@
       <TargetName>NRF52840</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
-      <pCCUsed>5060960::V5.06 update 7 (build 960)::.\ARMCC</pCCUsed>
+      <pCCUsed>5060960::V5.06 update 7 (build 960)::.\arm_compilerv5</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -281,8 +281,8 @@
               </OCR_RVCT4>
               <OCR_RVCT5>
                 <Type>1</Type>
-                <StartAddress>0x0</StartAddress>
-                <Size>0x0</Size>
+                <StartAddress>0x12000000</StartAddress>
+                <Size>0x8000000</Size>
               </OCR_RVCT5>
               <OCR_RVCT6>
                 <Type>0</Type>
@@ -306,8 +306,8 @@
               </OCR_RVCT9>
               <OCR_RVCT10>
                 <Type>0</Type>
-                <StartAddress>0x0</StartAddress>
-                <Size>0x0</Size>
+                <StartAddress>0x800000</StartAddress>
+                <Size>0x40000</Size>
               </OCR_RVCT10>
             </OnChipMemories>
             <RvctStartVector></RvctStartVector>
@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\modules\nrfx\drivers\include;..\integration\nrfx\legacy;.\Application;..\modules\nrfx;..\integration\nrfx;..\components\libraries\util;..\components\drivers_nrf\nrf_soc_nosd;..\components\libraries\log;..\components\libraries\experimental_section_vars;..\components\libraries\log\src</IncludePath>
+              <IncludePath>..\modules\nrfx\drivers\include;..\integration\nrfx\legacy;.\Application;..\modules\nrfx;..\integration\nrfx;..\components\libraries\util;..\components\drivers_nrf\nrf_soc_nosd;..\components\libraries\log;..\components\libraries\experimental_section_vars;..\components\libraries\log\src;..\modules\nrfx\hal;..\components\libraries\delay</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -399,6 +399,11 @@
               <FileType>5</FileType>
               <FilePath>.\Application\sdk_config.h</FilePath>
             </File>
+            <File>
+              <FileName>it.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Application\it.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -425,7 +430,15 @@
               <FileType>1</FileType>
               <FilePath>..\modules\nrfx\drivers\src\nrfx_uarte.c</FilePath>
             </File>
+            <File>
+              <FileName>nrfx_gpiote.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\modules\nrfx\drivers\src\nrfx_gpiote.c</FilePath>
+            </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>NRF_Log</GroupName>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>

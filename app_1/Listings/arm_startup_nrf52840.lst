@@ -444,23 +444,24 @@ ARM Macro Assembler    Page 7
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp.sp --apcs=
 interwork --depend=.\objects\arm_startup_nrf52840.d -o.\objects\arm_startup_nrf
-52840.o -I.\RTE\_NRF52840 -ID:\Keilc_v5\package\ARM\CMSIS\5.9.0\CMSIS\Core\Incl
-ude -ID:\Keilc_v5\package\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Devic
-e\Include --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 5
-37" --predefine="_RTE_ SETA 1" --predefine="NRF52840_XXAA SETA 1" --predefine="
-_RTE_ SETA 1" --predefine="BOARD_PCA10056 SETA 1" --predefine="BSP_DEFINES_ONLY
- SETA 1" --predefine="CONFIG_GPIO_AS_PINRESET SETA 1" --predefine="FLOAT_ABI_HA
-RD SETA 1" --predefine="NRF52840_XXAA SETA 1" --predefine="__HEAP_SIZE SETA 819
-2" --predefine="__STACK_SIZE SETA 8192" --cpreproc_opts=-DBOARD_PCA10056,-DBSP_
-DEFINES_ONLY,-DCONFIG_GPIO_AS_PINRESET,-DFLOAT_ABI_HARD,-DNRF52840_XXAA,-D__HEA
+52840.o -I.\RTE\_NRF52840 -IC:\Users\nguyen-thanh-tung\AppData\Local\Arm\Packs\
+ARM\CMSIS\5.9.0\CMSIS\Core\Include -IC:\Users\nguyen-thanh-tung\AppData\Local\A
+rm\Packs\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include --prede
+fine="__EVAL SETA 1" --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VER
+SION SETA 537" --predefine="_RTE_ SETA 1" --predefine="NRF52840_XXAA SETA 1" --
+predefine="_RTE_ SETA 1" --predefine="BOARD_PCA10056 SETA 1" --predefine="BSP_D
+EFINES_ONLY SETA 1" --predefine="CONFIG_GPIO_AS_PINRESET SETA 1" --predefine="F
+LOAT_ABI_HARD SETA 1" --predefine="NRF52840_XXAA SETA 1" --predefine="__HEAP_SI
+ZE SETA 8192" --predefine="__STACK_SIZE SETA 8192" --cpreproc_opts=-DBOARD_PCA1
 
 
 
 ARM Macro Assembler    Page 8 
 
 
-P_SIZE=8192,-D__STACK_SIZE=8192 --list=.\listings\arm_startup_nrf52840.lst RTE/
-Device/nRF52840_xxAA/arm_startup_nrf52840.s
+0056,-DBSP_DEFINES_ONLY,-DCONFIG_GPIO_AS_PINRESET,-DFLOAT_ABI_HARD,-DNRF52840_X
+XAA,-D__HEAP_SIZE=8192,-D__STACK_SIZE=8192 --list=.\listings\arm_startup_nrf528
+40.lst RTE/Device/nRF52840_xxAA/arm_startup_nrf52840.s
 
 
 
@@ -1175,4 +1176,4 @@ Symbol: __main
       At line 217 in file RTE/Device/nRF52840_xxAA/arm_startup_nrf52840.s
 Comment: __main used once
 2 symbols
-422 symbols in table
+423 symbols in table
