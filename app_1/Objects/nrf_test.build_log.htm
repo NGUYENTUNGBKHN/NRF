@@ -3,6 +3,7 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
+<<<<<<< HEAD
 IDE-Version: ƒÊVision V5.37.0.0
 Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
 License Information: TUNG TUNG, JCM, LIC=----
@@ -10,36 +11,60 @@ License Information: TUNG TUNG, JCM, LIC=----
 Tool Versions:
 Toolchain:       MDK-Lite  Version: 5.37.0.0
 Toolchain Path:  C:\Keil_v5\ARM\arm_compilerv5\Bin
+=======
+IDE-Version: ƒÊVision V5.33.0.0
+Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: TUNG NGUYEN, JCM111, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.33.0.0
+Toolchain Path:  D:\Soft\Keilc5\ARM\ARMCC\Bin
+>>>>>>> 8c30db1d3f0249af70852aefa01b586145bf7683
 C Compiler:      Armcc.exe V5.06 update 7 (build 960)
 Assembler:       Armasm.exe V5.06 update 7 (build 960)
 Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
 Library Manager: ArmAr.exe V5.06 update 7 (build 960)
 Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
-CPU DLL:         SARMCM3.DLL V5.37.0.0
-Dialog DLL:      DCM.DLL V1.17.5.0
-Target DLL:      Segger\JL2CM3.dll V2.99.42.0
-Dialog DLL:      TCM.DLL V1.56.1.0
+CPU DLL:         SARMCM3.DLL V5.33.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      Segger\JL2CM3.dll V2.99.38.0
+Dialog DLL:      TCM.DLL V1.48.0.0
  
 <h2>Project:</h2>
+<<<<<<< HEAD
 D:\tung\embedded_linx\nrf\NRF\app_1\nrf_test.uvprojx
 Project File Date:  05/26/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\arm_compilerv5\Bin'
+=======
+E:\Project\Embedded\NRF\NRF\app_1\nrf_test.uvprojx
+Project File Date:  05/17/2023
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\Soft\Keilc5\ARM\ARMCC\Bin'
+>>>>>>> 8c30db1d3f0249af70852aefa01b586145bf7683
 Build target 'NRF52840'
 compiling main.c...
+Application\main.c(112): warning:  #513-D: a value of type "void *" cannot be assigned to an entity of type "void (*)(void)"
+  	reset_handler = (void*)(reset_handler_address);
+Application\main.c: 1 warning, 0 errors
 linking...
+<<<<<<< HEAD
 Program Size: Code=6884 RO-data=552 RW-data=40 ZI-data=8328  
+=======
+Program Size: Code=6092 RO-data=544 RW-data=36 ZI-data=8236  
+>>>>>>> 8c30db1d3f0249af70852aefa01b586145bf7683
 FromELF: creating hex file...
-".\Objects\nrf_test.axf" - 0 Error(s), 0 Warning(s).
+".\Objects\nrf_test.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
 Package Vendor: ARM
-                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
-                ARM.CMSIS.5.9.0
-                CMSIS (Common Microcontroller Software Interface Standard)
-   * Component: CORE Version: 5.6.0
+                http://www.keil.com/pack/ARM.CMSIS.5.7.0.pack
+                ARM.CMSIS.5.7.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.4.0
 
 Package Vendor: NordicSemiconductor
                 http://developer.nordicsemi.com/nRF5_SDK/pieces/nRF_DeviceFamilyPack/NordicSemiconductor.nRF_DeviceFamilyPack.8.44.1.pack
@@ -48,20 +73,34 @@ Package Vendor: NordicSemiconductor
    * Component: Startup Version: 8.44.1
 
 <h2>Collection of Component include folders:</h2>
+<<<<<<< HEAD
   ./RTE/_NRF52840
   C:/Users/nguyen-thanh-tung/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
   C:/Users/nguyen-thanh-tung/AppData/Local/Arm/Packs/NordicSemiconductor/nRF_DeviceFamilyPack/8.44.1/Device/Include
+=======
+  .\RTE\_NRF52840
+  D:\Soft\Keilc5_Pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include
+  D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include
+>>>>>>> 8c30db1d3f0249af70852aefa01b586145bf7683
 
 <h2>Collection of Component Files used:</h2>
 
-   * Component: ARM::CMSIS:CORE:5.6.0
+   * Component: ARM::CMSIS:CORE:5.4.0
 
    * Component: NordicSemiconductor::Device:Startup:8.44.1
+<<<<<<< HEAD
       Include file:  Device/Include/system_nrf52840.h
       Source file:   Device/Source/arm/arm_startup_nrf52840.s
       Source file:   Device/Source/system_nrf52.c
       Include file:  Device/Include/system_nrf.h
 Build Time Elapsed:  00:00:01
+=======
+      Source file:   Device\Source\arm\arm_startup_nrf52840.s
+      Source file:   Device\Source\system_nrf52.c
+      Include file:  Device\Include\system_nrf52840.h
+      Include file:  Device\Include\system_nrf.h
+Build Time Elapsed:  00:00:02
+>>>>>>> 8c30db1d3f0249af70852aefa01b586145bf7683
 </pre>
 </body>
 </html>

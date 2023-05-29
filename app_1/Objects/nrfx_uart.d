@@ -3,6 +3,7 @@
 .\objects\nrfx_uart.o: ..\integration\nrfx\nrfx_config.h
 .\objects\nrfx_uart.o: .\Application\sdk_config.h
 .\objects\nrfx_uart.o: ..\modules\nrfx\drivers/nrfx_common.h
+<<<<<<< HEAD
 .\objects\nrfx_uart.o: C:\Keil_v5\ARM\arm_compilerv5\Bin\..\include\stdint.h
 .\objects\nrfx_uart.o: C:\Keil_v5\ARM\arm_compilerv5\Bin\..\include\stddef.h
 .\objects\nrfx_uart.o: C:\Keil_v5\ARM\arm_compilerv5\Bin\..\include\stdbool.h
@@ -20,6 +21,25 @@
 .\objects\nrfx_uart.o: C:\Users\nguyen-thanh-tung\AppData\Local\Arm\Packs\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\compiler_abstraction.h
 .\objects\nrfx_uart.o: C:\Users\nguyen-thanh-tung\AppData\Local\Arm\Packs\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf_peripherals.h
 .\objects\nrfx_uart.o: C:\Users\nguyen-thanh-tung\AppData\Local\Arm\Packs\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840_peripherals.h
+=======
+.\objects\nrfx_uart.o: D:\Soft\Keilc5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\nrfx_uart.o: D:\Soft\Keilc5\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\nrfx_uart.o: D:\Soft\Keilc5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\nrfx_uart.o: D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf.h
+.\objects\nrfx_uart.o: D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840.h
+.\objects\nrfx_uart.o: D:\Soft\Keilc5_Pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm4.h
+.\objects\nrfx_uart.o: D:\Soft\Keilc5_Pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h
+.\objects\nrfx_uart.o: D:\Soft\Keilc5_Pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h
+.\objects\nrfx_uart.o: D:\Soft\Keilc5_Pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h
+.\objects\nrfx_uart.o: D:\Soft\Keilc5_Pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include\mpu_armv7.h
+.\objects\nrfx_uart.o: D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\system_nrf52840.h
+.\objects\nrfx_uart.o: D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840_bitfields.h
+.\objects\nrfx_uart.o: D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf51_to_nrf52840.h
+.\objects\nrfx_uart.o: D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52_to_nrf52840.h
+.\objects\nrfx_uart.o: D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\compiler_abstraction.h
+.\objects\nrfx_uart.o: D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf_peripherals.h
+.\objects\nrfx_uart.o: D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840_peripherals.h
+>>>>>>> 8c30db1d3f0249af70852aefa01b586145bf7683
 .\objects\nrfx_uart.o: ..\integration\nrfx\nrfx_glue.h
 .\objects\nrfx_uart.o: ..\integration\nrfx\legacy/apply_old_config.h
 .\objects\nrfx_uart.o: ..\modules\nrfx\soc/nrfx_irqs.h
@@ -29,7 +49,11 @@
 .\objects\nrfx_uart.o: ..\components\libraries\util\nordic_common.h
 .\objects\nrfx_uart.o: ..\components\libraries\util\app_util_platform.h
 .\objects\nrfx_uart.o: ..\components\libraries\util\app_error.h
+<<<<<<< HEAD
 .\objects\nrfx_uart.o: C:\Keil_v5\ARM\arm_compilerv5\Bin\..\include\stdio.h
+=======
+.\objects\nrfx_uart.o: D:\Soft\Keilc5\ARM\ARMCC\Bin\..\include\stdio.h
+>>>>>>> 8c30db1d3f0249af70852aefa01b586145bf7683
 .\objects\nrfx_uart.o: ..\components\libraries\util\sdk_errors.h
 .\objects\nrfx_uart.o: ..\components\drivers_nrf\nrf_soc_nosd\nrf_error.h
 .\objects\nrfx_uart.o: ..\components\libraries\util\app_error_weak.h
@@ -45,7 +69,11 @@
 .\objects\nrfx_uart.o: ..\integration\nrfx\nrfx_log.h
 .\objects\nrfx_uart.o: ..\components\libraries\log\nrf_log.h
 .\objects\nrfx_uart.o: ..\components\libraries\util\sdk_common.h
+<<<<<<< HEAD
 .\objects\nrfx_uart.o: C:\Keil_v5\ARM\arm_compilerv5\Bin\..\include\string.h
+=======
+.\objects\nrfx_uart.o: D:\Soft\Keilc5\ARM\ARMCC\Bin\..\include\string.h
+>>>>>>> 8c30db1d3f0249af70852aefa01b586145bf7683
 .\objects\nrfx_uart.o: .\Application\sdk_config.h
 .\objects\nrfx_uart.o: ..\components\libraries\util\sdk_os.h
 .\objects\nrfx_uart.o: ..\components\libraries\util\sdk_macros.h

@@ -1,0 +1,34 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "./modules/nrfx/drivers/include",
+                "./integration/nrfx/legacy",
+                "./app_1/Application",
+                "./modules/nrfx",
+                "./integration/nrfx",
+                "./components/libraries/util",
+                "./components/drivers_nrf/nrf_soc_nosd",
+                "./components/libraries/log",
+                "./components/libraries/experimental_section_vars",
+                "./components/libraries/log/src",
+                "D:/Soft/Keilc5/ARM/ARMCC/include/",
+                "D:/Soft/Keilc5_Pack/NordicSemiconductor/nRF_DeviceFamilyPack/8.44.1/Device/Include/",
+                "D:/Soft/Keilc5/ARM/ARMCC/include/"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "windowsSdkVersion": "10.0.18362.0",
+            "compilerPath": "cl.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-msvc-x64"
+        }
+    ],
+    "version": 4
+}

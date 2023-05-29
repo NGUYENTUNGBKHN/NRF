@@ -10,9 +10,14 @@
 
 #define LED_1 NRF_GPIO_PIN_MAP(0,13)
 
+#define ADDRESS_START_APP 0x00010000
+
 static nrf_drv_uart_t app_uart_inst = NRF_DRV_UART_INSTANCE(0);
 void error_handler(void);
-void send_data(uint8_t *data, uint8_t len, uint32_t timeout);
+void send_data(uint8_t *data, uint8_t len);
+
+void jump_application(void);
+void jump_bootloader(void);
 volatile bool done = false;
 void DelayMs(uint32_t time);
 
@@ -57,6 +62,16 @@ int main()
 
 	logPrint_debug("bootloader\n");
 	logPrint_debug("NGUYEN THANH TUNG\n");
+	
+	
+	if (1) // jump application
+	{
+		jump_application();
+	}
+	else  // jump bootloader
+	{
+		jump_bootloader();
+	}
 	
 	while(1)
 	{
@@ -124,6 +139,35 @@ void DelayMs(uint32_t time)
 		while(systick_Gettick() - tick <= time);
 }
 
+void jump_application(void)
+{
+	//
+	void(*reset_handler)(void);
+	uint32_t reset_handler_address;
+	uint32_t msp_address;
+	
+	// get msp
+//	msp_address = __get_MSP();
+	
+	// turn off interrupt
+	
+	//
+	msp_address = *(uint32_t*)ADDRESS_START_APP;
+	reset_handler_address = *(uint32_t*)(ADDRESS_START_APP +  sizeof(uint32_t));
+	reset_handler = (void*)(reset_handler_address);
+	
+	__set_MSP(msp_address);
+	
+	// change vector interrupt 
+	
+	
+	reset_handler();
+}
+
+void jump_bootloader(void)
+{
+	
+}
 void error_handler()
 {
 	while(1);
