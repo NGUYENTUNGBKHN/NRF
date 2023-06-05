@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .\objects\system_nrf52.o: RTE/Device/nRF52840_xxAA/system_nrf52.c
 .\objects\system_nrf52.o: C:\Keil_v5\ARM\arm_compilerv5\Bin\..\include\stdint.h
 .\objects\system_nrf52.o: C:\Keil_v5\ARM\arm_compilerv5\Bin\..\include\stdbool.h
@@ -19,25 +18,3 @@
 .\objects\system_nrf52.o: C:\Users\nguyen-thanh-tung\AppData\Local\Arm\Packs\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52_erratas.h
 .\objects\system_nrf52.o: C:\Users\nguyen-thanh-tung\AppData\Local\Arm\Packs\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\system_nrf52.h
 .\objects\system_nrf52.o: C:\Users\nguyen-thanh-tung\AppData\Local\Arm\Packs\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\system_nrf52_approtect.h
-=======
-.\objects\system_nrf52.o: RTE\Device\nRF52840_xxAA\system_nrf52.c
-.\objects\system_nrf52.o: D:\Soft\Keilc5\ARM\ARMCC\Bin\..\include\stdint.h
-.\objects\system_nrf52.o: D:\Soft\Keilc5\ARM\ARMCC\Bin\..\include\stdbool.h
-.\objects\system_nrf52.o: D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf.h
-.\objects\system_nrf52.o: D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840.h
-.\objects\system_nrf52.o: D:\Soft\Keilc5_Pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm4.h
-.\objects\system_nrf52.o: D:\Soft\Keilc5_Pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h
-.\objects\system_nrf52.o: D:\Soft\Keilc5_Pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h
-.\objects\system_nrf52.o: D:\Soft\Keilc5_Pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h
-.\objects\system_nrf52.o: D:\Soft\Keilc5_Pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include\mpu_armv7.h
-.\objects\system_nrf52.o: D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\system_nrf52840.h
-.\objects\system_nrf52.o: D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840_bitfields.h
-.\objects\system_nrf52.o: D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf51_to_nrf52840.h
-.\objects\system_nrf52.o: D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52_to_nrf52840.h
-.\objects\system_nrf52.o: D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\compiler_abstraction.h
-.\objects\system_nrf52.o: D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf_peripherals.h
-.\objects\system_nrf52.o: D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840_peripherals.h
-.\objects\system_nrf52.o: D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52_erratas.h
-.\objects\system_nrf52.o: D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\system_nrf52.h
-.\objects\system_nrf52.o: D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\system_nrf52_approtect.h
->>>>>>> 8c30db1d3f0249af70852aefa01b586145bf7683
