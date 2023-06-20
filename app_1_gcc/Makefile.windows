@@ -1,0 +1,5 @@
+GNU_INSTALL_ROOT := D:/Soft/arm_toolchain/10 2021.10/bin/
+GNU_VERSION := 9.3.1
+GNU_PREFIX := arm-none-eabi
+
+
