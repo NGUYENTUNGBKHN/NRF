@@ -1,0 +1,135 @@
+
+
+MK := mkdir
+RM := rm -r
+
+DEBUG ?= 0
+
+ifeq ($(DEBUG),1)
+MO_ECHO := 
+else
+MO_ECHO := @
+endif
+
+
+ifneq (,$(filter clean, $(MAKECMDGOALS)))
+OTHER_GOALS := $(filter-out clean, $(MAKECMDGOALS))
+
+ifneq (,$(OTHER_GOALS))
+
+$(info Cannot do command)\
+$(error stop)
+
+else
+
+.PHONY: clean
+clean:
+	$(RM) $(OUTPUT_PROJ_DIR)
+endif 
+
+else 
+
+PLATFORM_SUFFIX := $(if $(filter Windows%,$(OS)),windows,posix)
+TOOLCHAIN_CONFIG_FILE := Makefile.$(PLATFORM_SUFFIX)
+include $(TOOLCHAIN_CONFIG_FILE)
+
+# $1 path
+define quote
+'$(subst ','\'',$(1))'
+endef
+
+# Toolchain commands
+CC      := $(call quote,$(GNU_INSTALL_ROOT)$(GNU_PREFIX)-gcc)
+CXX     := $(call quote,$(GNU_INSTALL_ROOT)$(GNU_PREFIX)-c++)
+AS      := $(call quote,$(GNU_INSTALL_ROOT)$(GNU_PREFIX)-as)
+AR      := $(call quote,$(GNU_INSTALL_ROOT)$(GNU_PREFIX)-ar) -r
+LD      := $(call quote,$(GNU_INSTALL_ROOT)$(GNU_PREFIX)-ld)
+NM      := $(call quote,$(GNU_INSTALL_ROOT)$(GNU_PREFIX)-nm)
+OBJDUMP := $(call quote,$(GNU_INSTALL_ROOT)$(GNU_PREFIX)-objdump)
+OBJCOPY := $(call quote,$(GNU_INSTALL_ROOT)$(GNU_PREFIX)-objcopy)
+SIZE    := $(call quote,$(GNU_INSTALL_ROOT)$(GNU_PREFIX)-size)
+$(if $(shell $(CC) --version),,$(info Cannot find: $(CC).) \
+  $(info Please set values in: "$(abspath $(TOOLCHAIN_CONFIG_FILE))") \
+  $(info according to the actual configuration of your system.) \
+  $(error Cannot continue))
+
+# $1 : target name
+# $2 : object file
+# $3 : source file
+define bind_object_with_src
+$(eval $(2) := $(3))\
+$(eval $(2) : Makefile | $(dir $(2)).)
+endef
+
+# $1 : path source file
+# $2 : target name
+define get_object_file_name
+$(OUTPUT_PROJ_DIR)/$(strip $(2))/$(notdir $(1:%.s=%.o)).o
+endef
+
+# $1 : target name
+# $2 : source file
+define get_object_files
+$(foreach src_file, $(2), \
+	$(eval obj_file := $(call get_object_file_name, $(src_file), $(1)))\
+	$(call bind_object_with_src, $(1), $(obj_file), $(src_file))\
+	$(obj_file))
+endef 
+
+# $1 : target name
+define get_inc_path
+$(foreach folder, $(1), -I$(folder))
+endef
+
+define target_specifies
+$($(addsuffix _$(strip $(2)), $(1)))
+endef
+
+# $1 : target name
+# $2 : target out
+define prepare_build
+$(eval DEPENDENCIES := )\
+$(eval $(2): \
+	$(call get_object_files, $(1), \
+		$(SRC_FILES) $(call target_specifies, SRC_FILES, $(1))))\
+$(eval -include $(DEPENDENCIES))\
+$(eval INC_PATHS_$(strip $(1)) :=\
+	$(call get_inc_path,\
+		$(INC_FOLDER) $(call target_specifies, INC_FOLDER, $(1))))
+endef
+
+
+# $1 : target name
+define define_target
+$(eval OUTPUT_FILE := $(OUTPUT_PROJ_DIR)/$(strip $(1)))\
+$(eval $(1): $(OUTPUT_FILE).out $(OUTPUT_FILE).hex $(OUTPUT_FILE).bin\
+		; @echo DONE $(1))\
+$(call prepare_build, $(1), $(OUTPUT_FILE).out)
+endef
+
+define run 
+$(NO_ECHO) $(1) -o $@ $(2) $($@) $(INC_PATHS)
+endef
+
+
+.PHONY: $(TARGETS) all
+
+all: $(TARGETS)
+
+$(OUTPUT_PROJ_DIR):
+	$(MK) $@
+$(OUTPUT_PROJ_DIR)/%/.: | $(OUTPUT_PROJ_DIR)
+	cd $(OUTPUT_PROJ_DIR) && $(MK) $*
+
+%.c.o:
+	$(call run,$(CC) -std=c99, $(CCFLAG), Compiling)
+
+%.c.o:
+	$(call run,$(CC), $(CCFLAG) $(CXXFALG), Compiling)
+
+%.S.o %.s.o.o: 
+	$(call run,$(CC) -x assembler-with-cpp, $(ASMFLAG), Assembling)
+
+
+endif
+
