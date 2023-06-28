@@ -1,0 +1,5 @@
+h
+loadfile D:/tung/embedded_linx/nrf/NRF/app_2/_build/app_2.hex
+r
+g
+exit

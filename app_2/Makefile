@@ -50,8 +50,6 @@ SRC_FILES +=\
 	$(LIB_NRF)/modules/nrfx/mdk/gcc_startup_nrf52840.S \
   	$(LIB_NRF)/components/libraries/log/src/nrf_log_frontend.c \
   	$(LIB_NRF)/components/libraries/log/src/nrf_log_str_formatter.c \
-  	$(LIB_NRF)/components/boards/boards.c \
-  	$(LIB_NRF)/components/libraries/util/app_error.c \
   	$(LIB_NRF)/components/libraries/util/app_error_handler_gcc.c \
   	$(LIB_NRF)/components/libraries/util/app_error_weak.c \
   	$(LIB_NRF)/components/libraries/fifo/app_fifo.c \
@@ -117,6 +115,14 @@ $(foreach target, $(TARGETS), $(call define_target, $(target)))
 help:
 	echo "help"
 
+flash: default
+	Jlink.exe -if swd -device nRF52840_xxAA -speed 4000 -CommanderScript CommanderScript/build_windows.jlink
+
+erase:
+	Jlink.exe -if swd -device nRF52840_xxAA -speed 4000 -CommanderScript CommanderScript/erase_windows.jlink
+
+softdevice:
+	Jlink.exe -if swd -device nRF52840_xxAA -speed 4000 -CommanderScript CommanderScript/sd_windows.jlink
 
 
 
