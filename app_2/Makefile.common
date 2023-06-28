@@ -5,10 +5,10 @@ RM := rm -r
 
 DEBUG ?= 0
 
-ifeq ($(DEBUG),1)
-MO_ECHO := 
+ifneq ($(DEBUG),1)
+NO_ECHO := @
 else
-MO_ECHO := @
+NO_ECHO := @
 endif
 
 
@@ -49,15 +49,16 @@ OBJDUMP := $(call quote,$(GNU_INSTALL_ROOT)$(GNU_PREFIX)-objdump)
 OBJCOPY := $(call quote,$(GNU_INSTALL_ROOT)$(GNU_PREFIX)-objcopy)
 SIZE    := $(call quote,$(GNU_INSTALL_ROOT)$(GNU_PREFIX)-size)
 $(if $(shell $(CC) --version),,$(info Cannot find: $(CC).) \
-  $(info Please set values in: "$(abspath $(TOOLCHAIN_CONFIG_FILE))") \
-  $(info according to the actual configuration of your system.) \
-  $(error Cannot continue))
+	$(info Please set values in: "$(abspath $(TOOLCHAIN_CONFIG_FILE))") \
+	$(info according to the actual configuration of your system.) \
+	$(error Cannot continue))
 
 # $1 : target name
 # $2 : object file
 # $3 : source file
 define bind_object_with_src
 $(eval $(2) := $(3))\
+$(eval $(2)_TGT := $(1))\
 $(eval $(2) : Makefile | $(dir $(2)).)
 endef
 
@@ -72,6 +73,7 @@ endef
 define get_object_files
 $(foreach src_file, $(2), \
 	$(eval obj_file := $(call get_object_file_name, $(src_file), $(1)))\
+	$(eval DEPENDENCIES += $(obj_file:%.o=%.d))\
 	$(call bind_object_with_src, $(1), $(obj_file), $(src_file))\
 	$(obj_file))
 endef 
@@ -84,6 +86,8 @@ endef
 define target_specifies
 $($(addsuffix _$(strip $(2)), $(1)))
 endef
+
+INC_PATHS = $(call target_specifies, INC_PATHS, $($@_TGT))
 
 # $1 : target name
 # $2 : target out
@@ -107,8 +111,13 @@ $(eval $(1): $(OUTPUT_FILE).out $(OUTPUT_FILE).hex $(OUTPUT_FILE).bin\
 $(call prepare_build, $(1), $(OUTPUT_FILE).out)
 endef
 
-define run 
-$(NO_ECHO) $(1) -o $@ $(2) $($@) $(INC_PATHS)
+
+# $1 : Toolchain
+# $2 : Flag
+# $3 : list source
+define run
+$(info $(3) file : $(notdir $($@)) )\
+$(NO_ECHO) $(1) -MD -MP -c -o $@ $(2) $($@) $(INC_PATHS)
 endef
 
 
@@ -129,6 +138,19 @@ $(OUTPUT_PROJ_DIR)/%/.: | $(OUTPUT_PROJ_DIR)
 
 %.S.o %.s.o.o: 
 	$(call run,$(CC) -x assembler-with-cpp, $(ASMFLAG), Assembling)
+
+
+%.out:
+	$(info Link target : $@)
+	$(NO_ECHO) $(CC) $(LDFLAGS) $(LIB_FILES) $^ -Wl,-Map=$(@:.out=.map) -o $@
+
+%.hex: %.out
+	$(info prepare hex : $@)
+	$(NO_ECHO) $(OBJCOPY) -O ihex $< $@
+
+%.bin: %.out
+	$(info prepare bin : $@)
+	$(NO_ECHO) $(OBJCOPY) -O binary $< $@
 
 
 endif
