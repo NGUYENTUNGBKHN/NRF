@@ -21,7 +21,9 @@
             "defines": [
                 "_DEBUG",
                 "UNICODE",
-                "_UNICODE"
+                "_UNICODE",
+                "NRF_DRV_UART_WITH_UART",
+                ""
             ],
             "windowsSdkVersion": "10.0.18362.0",
             "compilerPath": "cl.exe",

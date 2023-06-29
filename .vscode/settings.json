@@ -3,8 +3,12 @@
         "nrfx_config.h": "c",
         "sdk_config.h": "c",
         "main.h": "c",
-        "system_nrf52840.h": "c"
+        "system_nrf52840.h": "c",
+        "nrfx_prs.h": "c",
+        "nrf_gpio.h": "c",
+        "nrfx_uart.h": "c"
     },
+    
     "C_Cpp.errorSquiggles": "disabled",
     "cmake.configureOnOpen": false
 }

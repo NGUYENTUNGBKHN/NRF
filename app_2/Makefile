@@ -52,8 +52,6 @@ SRC_FILES +=\
   	$(LIB_NRF)/components/libraries/log/src/nrf_log_str_formatter.c \
   	$(LIB_NRF)/components/libraries/util/app_error_handler_gcc.c \
   	$(LIB_NRF)/components/libraries/util/app_error_weak.c \
-  	$(LIB_NRF)/components/libraries/fifo/app_fifo.c \
-  	$(LIB_NRF)/components/libraries/uart/app_uart_fifo.c \
   	$(LIB_NRF)/components/libraries/util/app_util_platform.c \
   	$(LIB_NRF)/components/libraries/util/nrf_assert.c \
   	$(LIB_NRF)/components/libraries/atomic/nrf_atomic.c \
