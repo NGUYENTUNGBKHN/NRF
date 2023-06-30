@@ -16,7 +16,8 @@
                 "./components/libraries/log/src",
                 "D:/Soft/Keilc5/ARM/ARMCC/include/",
                 "D:/Soft/Keilc5_Pack/NordicSemiconductor/nRF_DeviceFamilyPack/8.44.1/Device/Include/",
-                "D:/Soft/Keilc5/ARM/ARMCC/include/"
+                "D:/Soft/Keilc5/ARM/ARMCC/include/",
+                "C:/Keil_v5/ARM/ARMCLANG/include"
             ],
             "defines": [
                 "_DEBUG",

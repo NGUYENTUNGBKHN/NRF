@@ -1,14 +1,86 @@
 {
     "files.associations": {
-        "nrfx_config.h": "c",
-        "sdk_config.h": "c",
-        "main.h": "c",
-        "system_nrf52840.h": "c",
-        "nrfx_prs.h": "c",
-        "nrf_gpio.h": "c",
-        "nrfx_uart.h": "c"
+      "nrfx_config.h": "c",
+      "sdk_config.h": "c",
+      "main.h": "c",
+      "system_nrf52840.h": "c",
+      "nrfx_prs.h": "c",
+      "nrf_gpio.h": "c",
+      "nrfx_uart.h": "c",
+      "nrfx.h": "c",
+      "nrfx_common.h": "c",
+      "stdint.h": "c",
+      "stdarg.h": "c"
     },
     
     "C_Cpp.errorSquiggles": "disabled",
-    "cmake.configureOnOpen": false
+    "cmake.configureOnOpen": false,
+    
+        "files.encoding": "shiftjis",
+          "C_Cpp.updateChannel": "Insiders",
+          "doxdocgen.c.getterText": "Create a {name} object",
+          "doxdocgen.file.customTag": [
+            "@par        Revision",
+            "$Id$",
+            "@par        Copyright (C)",
+            "Japan CashMachine Co, Limited. All rights reserved.",
+          ],
+          "doxdocgen.file.fileOrder": [
+              "file",
+              "brief",
+              "date",
+              "author",
+              "custom"
+            ],
+          // The template for the file parameter in Doxygen.
+        "doxdocgen.file.fileTemplate": "@file       {name}",
+      
+        // Set the name of the author.  Replaces {author}.
+        "doxdocgen.generic.authorName": "    Development Dept at Tokyo",
+      
+        "doxdocgen.c.commentPrefix": "    ",
+        "doxdocgen.c.firstLine": "/******************************************************************************/\n/*! @addtogroup Group2",
+        "doxdocgen.c.lastLine": "******************************************************************************/",
+        "doxdocgen.generic.briefTemplate": "@brief      {text}",
+        "doxdocgen.generic.dateFormat": "      YYYY/MM/DD",
+        "doxdocgen.generic.authorEmail": "",
+        "doxdocgen.generic.authorTag": "@author {author}",
+        "doxdocgen.file.copyrightTag": [],
+        "todo-tree.tree.showScanModeButton": false,
+        "enableTelemetry": false,
+        "window.zoomLevel": -2,
+        "git.enableSmartCommit": true,
+        "git.autofetch": true,
+        "terminal.integrated.profiles.windows": {
+          "PowerShell": {
+              "path": [
+                  "${env:windir}\\Sysnative\\WindowsPowerShell\\v1.0\\powershell.exe",
+                  "${env:windir}\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+              ],
+              "source": "PowerShell",
+              "icon": "terminal-powershell",
+              "args": [
+                  "-NoLogo",
+                  "-ExecutionPolicy",
+                  "Bypass"
+              ]
+          },
+          "Command Prompt": {
+              "path": [
+                  "${env:windir}\\Sysnative\\cmd.exe",
+                  "${env:windir}\\System32\\cmd.exe"
+              ],
+              "icon": "terminal-cmd"
+          },
+          //START: THIS DOES NOT WORK
+          "Git Bash": {
+            "path": [
+                "C:\\Program Files\\Git\\bin\\bash.exe",
+            ],
+            "source": "Git Bash",
+            "icon": "terminal-bash"
+          }
+        },
+        "git.confirmSync": false,
+        "editor.codeActionsOnSave": {}
 }

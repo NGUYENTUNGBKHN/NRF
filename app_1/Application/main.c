@@ -54,12 +54,13 @@ void uart_init(void);
 
 int main()
 {
+	uint8_t a = 0x32;
 	systick_init();
 	uart_init();
 	gpio_init();
-
-	logPrint_debug("bootloader\n");
-	logPrint_debug("NGUYEN THANH TUNG\n");
+	send_data(&a,1,100);
+	//logPrint_debug("bootloader\n");
+	//logPrint_debug("NGUYEN THANH TUNG\n");
 
 	if (1) // jump application
 	{
@@ -72,9 +73,9 @@ int main()
 
 	while (1)
 	{
-		nrf_gpio_pin_toggle(LED_1);
+		//nrf_gpio_pin_toggle(LED_1);
 		// nrf_delay_ms(500);
-		DelayMs(500);
+		//DelayMs(500);
 	}
 }
 
