@@ -18,25 +18,25 @@
 
 void error_hander();
 
-void uart_init();
-void send_data(uint8_t *data, uint8_t len, uint32_t timeout);
+// void uart_init();
+// void send_data(uint8_t *data, uint8_t len, uint32_t timeout);
 
-void logPrint(char *format, ...)
-{
-    char str[80];
+// void logPrint(char *format, ...)
+// {
+//     char str[80];
 
-    va_list args;
-    va_start(args, format);
-    vsprintf(str, format, args);
-    send_data((uint8_t*)str, strlen(str), 100);
-    va_end(args);
-}
+//     va_list args;
+//     va_start(args, format);
+//     vsprintf(str, format, args);
+//     send_data((uint8_t*)str, strlen(str), 100);
+//     va_end(args);
+// }
 
 int main()
 {
-    uart_init();
-    logPrint("bootloader\n");
-    logPrint("NGUYEN THANH TUNG\n");
+    // uart_init();
+    // logPrint("bootloader\n");
+    // logPrint("NGUYEN THANH TUNG\n");
     while (1)
     {
         /* code */
@@ -45,21 +45,6 @@ int main()
     }
 }
 
-
-
-void uart_init()
-{
-    
-}
-
-void send_data(uint8_t *data, uint8_t len, uint32_t timeout)
-{
-    nrf_drv_uart_tx(&uart_instance, data, len);
-    while(nrf_drv_uart_tx_in_progress(&uart_instance))
-    {
-
-    }
-}
 
 void error_hander()
 {

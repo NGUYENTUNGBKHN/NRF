@@ -10,7 +10,8 @@
       "nrfx.h": "c",
       "nrfx_common.h": "c",
       "stdint.h": "c",
-      "stdarg.h": "c"
+      "stdarg.h": "c",
+      "drv_uart.h": "c"
     },
     
     "C_Cpp.errorSquiggles": "disabled",
