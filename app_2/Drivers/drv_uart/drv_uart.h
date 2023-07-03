@@ -54,6 +54,18 @@ typedef struct DRV_UART_S
     drv_uart_hanlde_t uart_handle;
 }drv_uart_t;
 
+void drv_uart_config(drv_uart_instance_t inst_no,
+                    drv_uart_baudrate_t baudrate,
+                    drv_uart_hwfc_t hwFc,
+                    uint32_t tx_pin,
+                    uint32_t rx_pin,
+                    uint32_t cts_pin,
+                    uint32_t rts_pin);
+
+app_error_t drv_uart_init(drv_uart_instance_t inst_no, drv_uart_hanlde_t drv_uart_handle);
+
+app_error_t drv_uart_transmit(drv_uart_instance_t inst_no, uint8_t *data, uint8_t len);
+
 #ifdef __cplusplus
 }
 #endif

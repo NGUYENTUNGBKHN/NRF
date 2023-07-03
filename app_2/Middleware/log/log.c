@@ -12,5 +12,7 @@
 
 #include "log.h"
 
-
-
+app_error_t log_init()
+{
+    
+}
