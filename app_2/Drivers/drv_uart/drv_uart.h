@@ -19,10 +19,14 @@ extern "C"
 #include "common.h"
 #include "nrf_drv_uart.h"
 
-#define drv_uart_baudrate_t nrf_uart_baudrate_t 
 
 /* CODE */
 typedef void (*drv_uart_hanlde_t)(uint32_t event, void *mess);
+
+typedef enum DRV_UART_BAUDRATE_E
+{
+    DRV_UART_BAUDRATE_115200 = NRF_UART_BAUDRATE_115200,
+}drv_uart_baudrate_t;
 
 typedef enum DRV_UART_HWFC_E
 {

@@ -19,10 +19,13 @@ extern "C"
 #endif
 
 #include "common.h"
+#include "nrf52_eval_kit.h"
 #include "drv_uart.h"
 
 /* CODE */
-#include "drv_uart.h"
+app_error_t log_init();
+
+void log_print(char *format, ...);
 
 #ifdef __cplusplus
 }

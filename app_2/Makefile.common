@@ -143,6 +143,7 @@ $(OUTPUT_PROJ_DIR)/%/.: | $(OUTPUT_PROJ_DIR)
 %.out:
 	$(info Link target : $@)
 	$(NO_ECHO) $(CC) $(LDFLAGS) $(LIB_FILES) $^ -Wl,-Map=$(@:.out=.map) -o $@
+	$(NO_ECHO) $(SIZE) $@
 
 %.hex: %.out
 	$(info prepare hex : $@)

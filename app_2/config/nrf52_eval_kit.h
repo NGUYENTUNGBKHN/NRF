@@ -18,8 +18,8 @@ extern "C"
 #endif
 
 /* CODE */
-#define TX_PIN_NUMBER 6
-#define RX_PIN_NUMBER 8
+#define ACE_KIT_DEBUG_TX 6
+#define ACE_KIT_DEBUG_RX 8
 
 #ifdef __cplusplus
 }

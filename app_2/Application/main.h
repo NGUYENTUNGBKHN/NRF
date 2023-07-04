@@ -20,6 +20,7 @@ extern "C"
 /* CODE */
 #include "nrf_drv_uart.h"
 #include "nrf52_eval_kit.h"
+#include "log.h"
 
 #ifdef __cplusplus
 }

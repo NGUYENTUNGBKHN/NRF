@@ -1,26 +1,28 @@
 /******************************************************************************/
 /*! @addtogroup Group2
-    @file       main.c
+    @file       fifo.h
     @brief      
-    @date       2023/06/20
+    @date       2023/07/04
     @author     Development Dept at Tokyo
     @par        Revision
     $Id$
     @par        Copyright (C)
     Japan CashMachine Co, Limited. All rights reserved.
 ******************************************************************************/
-#include "main.h"
 
-int main()
+
+#ifndef _FIFO_H_
+#define _FIFO_H_
+#ifdef __cplusplus
+extern "C"
 {
-    log_init();
+#endif
 
-    log_print("Bootloader\n");
-    log_print("NGUYEN THANH TUNG\n");   
-    while (1)
-    {
-        /* code */
-    }
+/* CODE */
+
+#ifdef __cplusplus
 }
+#endif
+#endif
 
 

@@ -20,6 +20,7 @@ extern "C"
 typedef enum APP_ERROR_E
 {
     APP_ERROR_OK,
+    APP_ERROR_EXISTED,
     APP_ERROR_FAIL,
     APP_ERROR_TIMEOUT
 }app_error_t;

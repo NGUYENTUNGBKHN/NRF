@@ -75,8 +75,12 @@ void drv_uart_config(drv_uart_instance_t inst_no,
         drv_uart_0.uart_config.parity = NRF_UART_PARITY_EXCLUDED;
         drv_uart_0.uart_config.pseltxd = tx_pin;
         drv_uart_0.uart_config.pselrxd = rx_pin;
-        drv_uart_0.uart_config.pselcts = cts_pin;
-        drv_uart_0.uart_config.pselrts = rts_pin;
+        if (hwFc == DRV_UART_HWFC_EN)
+        {   
+            drv_uart_0.uart_config.pselcts = cts_pin;
+            drv_uart_0.uart_config.pselrts = rts_pin;
+        }
+        
     }
     else
     {
@@ -86,8 +90,11 @@ void drv_uart_config(drv_uart_instance_t inst_no,
         drv_uart_1.uart_config.parity = NRF_UART_PARITY_EXCLUDED;
         drv_uart_1.uart_config.pseltxd = tx_pin;
         drv_uart_1.uart_config.pselrxd = rx_pin;
-        drv_uart_1.uart_config.pselcts = cts_pin;
-        drv_uart_1.uart_config.pselrts = rts_pin;
+        if (hwFc == DRV_UART_HWFC_EN)
+        {
+            drv_uart_1.uart_config.pselcts = cts_pin;
+            drv_uart_1.uart_config.pselrts = rts_pin;
+        }
     }
 }
 
@@ -155,7 +162,7 @@ app_error_t drv_uart_transmit(drv_uart_instance_t inst_no, uint8_t *data, uint8_
     // check uart open?
     if (drv_uart_isOpen(temp))
     {
-        return APP_ERROR_FAIL;
+        return APP_ERROR_EXISTED;
     }
     nrf_drv_uart_tx(&temp->drv_inst, data, len);
     while(nrf_drv_uart_tx_in_progress(&temp->drv_inst))
