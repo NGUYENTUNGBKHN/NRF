@@ -69,6 +69,7 @@ SRC_FILES +=\
   	$(LIB_NRF)/modules/nrfx/drivers/src/nrfx_uarte.c \
 	$(LIB_NRF)/modules/nrfx/mdk/system_nrf52840.c \
   	$(ROOT_PROJ)/Application/main.c \
+	$(ROOT_PROJ)/Middleware/log/log.c \
 	$(ROOT_PROJ)/Drivers/drv_uart/drv_uart.c \
 	$(ROOT_PROJ)/Drivers/drv_gpio/drv_gpio.c \
   	
@@ -102,6 +103,7 @@ INC_FOLDER +=\
   	$(LIB_NRF)/external/fprintf \
   	$(LIB_NRF)/components/libraries/log/src \
 	$(ROOT_PROJ)/Application\
+	$(ROOT_PROJ)/Middleware/log\
 	$(ROOT_PROJ)/Drivers/drv_uart\
 	$(ROOT_PROJ)/Drivers/drv_gpio\
 

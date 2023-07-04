@@ -10,27 +10,13 @@
     Japan CashMachine Co, Limited. All rights reserved.
 ******************************************************************************/
 #include "main.h"
-#include <stdarg.h>
-#include <stdio.h>
-#include <string.h>
+
 
 // create driver uart instance
 
 void error_hander();
 
-// void uart_init();
-// void send_data(uint8_t *data, uint8_t len, uint32_t timeout);
 
-// void logPrint(char *format, ...)
-// {
-//     char str[80];
-
-//     va_list args;
-//     va_start(args, format);
-//     vsprintf(str, format, args);
-//     send_data((uint8_t*)str, strlen(str), 100);
-//     va_end(args);
-// }
 
 int main()
 {

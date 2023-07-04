@@ -11,6 +11,24 @@
 ******************************************************************************/
 
 #include "log.h"
+#include <stdarg.h>
+#include <stdio.h>
+#include <string.h>
 
+app_error_t log_init()
+{
+    // drv_uart_config();
+    return APP_ERROR_OK;
+}
 
+void log_print(char *format, ...)
+{
+    char str[80];
+
+    va_list args;
+    va_start(args, format);
+    vsprintf(str, format, args);
+
+    va_end(args);
+}
 

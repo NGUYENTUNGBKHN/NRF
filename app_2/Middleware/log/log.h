@@ -19,6 +19,7 @@ extern "C"
 #endif
 
 /* CODE */
+#include "drv_uart.h"
 
 #ifdef __cplusplus
 }
