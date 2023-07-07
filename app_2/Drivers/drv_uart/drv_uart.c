@@ -184,6 +184,6 @@ static bool drv_uart_isOpen(drv_uart_t *drv_uart)
         //TODO: add error
         return false;
     }
-    return drv_uart->drv_sta;
+    return !drv_uart->drv_sta;
 }
 

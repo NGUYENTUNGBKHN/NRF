@@ -12,7 +12,14 @@
       "stdint.h": "c",
       "stdarg.h": "c",
       "drv_uart.h": "c",
-      "log.h": "c"
+      "log.h": "c",
+      "bit": "c",
+      "compare": "c",
+      "cstddef": "c",
+      "limits": "c",
+      "memory": "c",
+      "type_traits": "c",
+      "xutility": "c"
     },
     
     "C_Cpp.errorSquiggles": "disabled",
