@@ -33,9 +33,9 @@ void log_uart_handle(uint32_t event, void *mess)
     }
 }
 
-app_error_t log_init()
+sta_code_t log_init()
 {
-    app_error_t err;
+    sta_code_t err;
     drv_uart_config(DRV_UART_INSTAN_0,
                     DRV_UART_BAUDRATE_115200, 
                     DRV_UART_HWFC_DIS,
@@ -44,12 +44,12 @@ app_error_t log_init()
                     0,
                     0);
     err = drv_uart_init(DRV_UART_INSTAN_0,log_uart_handle);
-    if (err == APP_ERROR_FAIL || err == APP_ERROR_EXISTED)
+    if (err == STA_CODE_FAIL || err == STA_CODE_EXISTED)
     {
-        return APP_ERROR_FAIL;
+        return STA_CODE_FAIL;
     }
     flag_log_init = true;
-    return APP_ERROR_OK;
+    return STA_CODE_OK;
 }
 
 void log_print(char *format, ...)

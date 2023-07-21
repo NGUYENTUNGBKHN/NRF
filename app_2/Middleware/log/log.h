@@ -23,7 +23,7 @@ extern "C"
 #include "drv_uart.h"
 
 /* CODE */
-app_error_t log_init();
+sta_code_t log_init();
 
 void log_print(char *format, ...);
 

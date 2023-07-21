@@ -98,16 +98,16 @@ void drv_uart_config(drv_uart_instance_t inst_no,
     }
 }
 
-app_error_t drv_uart_init(drv_uart_instance_t inst_no, drv_uart_hanlde_t drv_uart_handle)
+sta_code_t drv_uart_init(drv_uart_instance_t inst_no, drv_uart_hanlde_t drv_uart_handle)
 {
     if (drv_uart_handle == NULL)
     {
-        return APP_ERROR_FAIL;
+        return STA_CODE_FAIL;
     }
 
     if (inst_no < DRV_UART_INSTAN_MIN || inst_no >= DRV_UART_INSTAN_MAX)
     {
-        return APP_ERROR_FAIL;
+        return STA_CODE_FAIL;
     }
 
     ret_code_t err;
@@ -126,7 +126,7 @@ app_error_t drv_uart_init(drv_uart_instance_t inst_no, drv_uart_hanlde_t drv_uar
      // check uart open?
     if (drv_uart_isOpen(temp))
     {
-        return APP_ERROR_FAIL;
+        return STA_CODE_FAIL;
     }
 
     temp->uart_handle = drv_uart_handle;
@@ -136,9 +136,9 @@ app_error_t drv_uart_init(drv_uart_instance_t inst_no, drv_uart_hanlde_t drv_uar
     if (err != NRF_SUCCESS)
     {
         temp->drv_sta = false;
-        return APP_ERROR_FAIL;
+        return STA_CODE_FAIL;
     }
-    return APP_ERROR_OK;
+    return STA_CODE_OK;
 }
 
 void drv_uart_deInit()
@@ -146,7 +146,7 @@ void drv_uart_deInit()
 
 }
 
-app_error_t drv_uart_transmit(drv_uart_instance_t inst_no, uint8_t *data, uint8_t len)
+sta_code_t drv_uart_transmit(drv_uart_instance_t inst_no, uint8_t *data, uint8_t len)
 {
     drv_uart_t *temp;
 
@@ -160,16 +160,16 @@ app_error_t drv_uart_transmit(drv_uart_instance_t inst_no, uint8_t *data, uint8_
     }
 
     // check uart open?
-    if (drv_uart_isOpen(temp))
+    if (!drv_uart_isOpen(temp))
     {
-        return APP_ERROR_EXISTED;
+        return STA_CODE_EXISTED;
     }
     nrf_drv_uart_tx(&temp->drv_inst, data, len);
     while(nrf_drv_uart_tx_in_progress(&temp->drv_inst))
     {
 
     }
-    return APP_ERROR_OK;
+    return STA_CODE_OK;
 }
 
 void drv_uart_received()

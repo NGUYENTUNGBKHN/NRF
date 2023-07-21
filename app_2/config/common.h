@@ -17,13 +17,13 @@ extern "C"
 #endif
 
 /* CODE */
-typedef enum APP_ERROR_E
+typedef enum STA_CODE_E
 {
-    APP_ERROR_OK,
-    APP_ERROR_EXISTED,
-    APP_ERROR_FAIL,
-    APP_ERROR_TIMEOUT
-}app_error_t;
+    STA_CODE_OK,
+    STA_CODE_EXISTED,
+    STA_CODE_FAIL,
+    STA_CODE_TIMEOUT
+}sta_code_t;
 
 
 #ifdef __cplusplus

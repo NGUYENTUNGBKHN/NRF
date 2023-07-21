@@ -71,9 +71,9 @@ void drv_uart_config(drv_uart_instance_t inst_no,
                     uint32_t cts_pin,
                     uint32_t rts_pin);
 
-app_error_t drv_uart_init(drv_uart_instance_t inst_no, drv_uart_hanlde_t drv_uart_handle);
+sta_code_t drv_uart_init(drv_uart_instance_t inst_no, drv_uart_hanlde_t drv_uart_handle);
 
-app_error_t drv_uart_transmit(drv_uart_instance_t inst_no, uint8_t *data, uint8_t len);
+sta_code_t drv_uart_transmit(drv_uart_instance_t inst_no, uint8_t *data, uint8_t len);
 
 #ifdef __cplusplus
 }

@@ -48,22 +48,10 @@ LIB_FILES += -lc -lnosys -lm
 
 SRC_FILES +=\
 	$(LIB_NRF)/modules/nrfx/mdk/gcc_startup_nrf52840.S \
-  	$(LIB_NRF)/components/libraries/log/src/nrf_log_frontend.c \
-  	$(LIB_NRF)/components/libraries/log/src/nrf_log_str_formatter.c \
-  	$(LIB_NRF)/components/libraries/util/app_error_handler_gcc.c \
-  	$(LIB_NRF)/components/libraries/util/app_error_weak.c \
   	$(LIB_NRF)/components/libraries/util/app_util_platform.c \
   	$(LIB_NRF)/components/libraries/util/nrf_assert.c \
-  	$(LIB_NRF)/components/libraries/atomic/nrf_atomic.c \
-  	$(LIB_NRF)/components/libraries/balloc/nrf_balloc.c \
-  	$(LIB_NRF)/external/fprintf/nrf_fprintf.c \
-  	$(LIB_NRF)/external/fprintf/nrf_fprintf_format.c \
-  	$(LIB_NRF)/components/libraries/memobj/nrf_memobj.c \
-  	$(LIB_NRF)/components/libraries/ringbuf/nrf_ringbuf.c \
-  	$(LIB_NRF)/components/libraries/strerror/nrf_strerror.c \
   	$(LIB_NRF)/components/libraries/uart/retarget.c \
   	$(LIB_NRF)/integration/nrfx/legacy/nrf_drv_uart.c \
-  	$(LIB_NRF)/modules/nrfx/soc/nrfx_atomic.c \
   	$(LIB_NRF)/modules/nrfx/drivers/src/prs/nrfx_prs.c \
   	$(LIB_NRF)/modules/nrfx/drivers/src/nrfx_uart.c \
   	$(LIB_NRF)/modules/nrfx/drivers/src/nrfx_uarte.c \
