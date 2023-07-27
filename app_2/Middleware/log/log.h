@@ -21,11 +21,12 @@ extern "C"
 #include "common.h"
 #include "nrf52_eval_kit.h"
 #include "drv_uart.h"
+#include "SEGGER_RTT.h"
 
 /* CODE */
 sta_code_t log_init();
 
-void log_print(char *format, ...);
+void log_print(const char *format, ...);
 
 #ifdef __cplusplus
 }

@@ -14,7 +14,6 @@
 int main()
 {
     log_init();
-
     log_print("Bootloader\n");
     log_print("NGUYEN THANH TUNG\n");   
     while (1)

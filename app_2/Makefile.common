@@ -65,7 +65,7 @@ endef
 # $1 : path source file
 # $2 : target name
 define get_object_file_name
-$(OUTPUT_PROJ_DIR)/$(strip $(2))/$(notdir $(1:%.s=%.o)).o
+$(OUTPUT_PROJ_DIR)/$(strip $(2))/$(notdir $(1:%.s=%.s.o)).o
 endef
 
 # $1 : target name

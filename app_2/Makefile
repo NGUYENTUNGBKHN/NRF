@@ -56,6 +56,9 @@ SRC_FILES +=\
   	$(LIB_NRF)/modules/nrfx/drivers/src/nrfx_uart.c \
   	$(LIB_NRF)/modules/nrfx/drivers/src/nrfx_uarte.c \
 	$(LIB_NRF)/modules/nrfx/mdk/system_nrf52840.c \
+	$(LIB_NRF)/external/segger_rtt/SEGGER_RTT.c \
+	$(LIB_NRF)/external/segger_rtt/SEGGER_RTT_printf.c \
+	$(LIB_NRF)/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c \
   	$(ROOT_PROJ)/Application/main.c \
 	$(ROOT_PROJ)/Middleware/log/log.c \
 	$(ROOT_PROJ)/Drivers/drv_uart/drv_uart.c \
@@ -66,6 +69,7 @@ SRC_FILES +=\
 INC_FOLDER +=\
 	$(LIB_NRF)/components \
   	$(LIB_NRF)/modules/nrfx/mdk \
+	$(LIB_NRF)/external/segger_rtt \
   	$(ROOT_PROJ) \
   	$(LIB_NRF)/components/libraries/fifo \
   	$(LIB_NRF)/components/libraries/strerror \

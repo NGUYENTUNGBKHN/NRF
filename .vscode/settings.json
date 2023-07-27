@@ -19,7 +19,8 @@
       "limits": "c",
       "memory": "c",
       "type_traits": "c",
-      "xutility": "c"
+      "xutility": "c",
+      "stdio.h": "c"
     },
     
     "C_Cpp.errorSquiggles": "disabled",

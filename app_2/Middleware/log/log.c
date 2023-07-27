@@ -15,7 +15,8 @@
 #include <stdio.h>
 #include <string.h>
 
-#define LOG_ONOFF 1
+#define LOG_USE_UART
+#define LOG_USE_SEGGER_RTT
 static bool flag_log_init = false;
 
 void log_uart_handle(uint32_t event, void *mess)
@@ -35,6 +36,9 @@ void log_uart_handle(uint32_t event, void *mess)
 
 sta_code_t log_init()
 {
+#ifdef LOG_USE_SEGGER_RTT
+
+#else
     sta_code_t err;
     drv_uart_config(DRV_UART_INSTAN_0,
                     DRV_UART_BAUDRATE_115200, 
@@ -48,24 +52,31 @@ sta_code_t log_init()
     {
         return STA_CODE_FAIL;
     }
+    
+#endif // LOG_USE_SEGGER_RTT
     flag_log_init = true;
     return STA_CODE_OK;
 }
 
-void log_print(char *format, ...)
+void log_print(const char *format, ...)
 {
     if (!flag_log_init)
     {
         return ;
     }
+#ifdef LOG_USE_SEGGER_RTT  
+    // SEGGER_RTT_printf();
+#else
+    
     char str[80];
 
     va_list args;
     va_start(args, format);
     vsprintf(str, format, args);
-#if LOG_ONOFF
+#ifdef LOG_USE_UART
     drv_uart_transmit(DRV_UART_INSTAN_0, (uint8_t*)str, strlen(str));
-#endif // LOG_ONOFF
+#endif // LOG_USE_UART
     va_end(args);
+#endif // LOG_USE_SEGGER_RTT
 }
 

@@ -9,6 +9,21 @@
     @par        Copyright (C)
     Japan CashMachine Co, Limited. All rights reserved.
 ******************************************************************************/
+#include "drv_gpio.h"
+
+void gpio_init()
+{
+
+}
 
 
+void gpio_set()
+{
+
+}
+
+int gpio_get()
+{
+    return 1;
+}
 
