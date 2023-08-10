@@ -11,18 +11,18 @@
 ******************************************************************************/
 #include "drv_gpio.h"
 
-void gpio_init()
+void drv_gpio_init()
 {
 
 }
 
 
-void gpio_set()
+void drv_gpio_set()
 {
 
 }
 
-int gpio_get()
+int drv_gpio_get()
 {
     return 1;
 }

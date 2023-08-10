@@ -17,16 +17,26 @@ extern "C"
 {
 #endif
 
+#include "common.h"
+#include "nrf_gpio.h"
+
 /* CODE */
-// typedef struct drv_gpio_s
-// {
-//     uint32_t pin_no;
-//     uint8_t dir;
-//     uint8_t pull_mode;
-//     uint8_t input_buffer;
-//     uint8_t drive_mode;
-//     uint8_t pin_sense;
-// }drv_gpio_t;
+typedef struct drv_gpio_cfg_s
+{
+    uint32_t pin_no;
+    uint8_t dir;
+    uint8_t pull_mode;
+    uint8_t input_buffer;
+    uint8_t drive_mode;
+    uint8_t pin_sense;
+}drv_gpio_cfg_t;
+
+
+typedef struct drv_gpio_s
+{
+    drv_gpio_cfg_t cfg;
+    
+}drv_gpio_t;
 
 #ifdef __cplusplus
 }

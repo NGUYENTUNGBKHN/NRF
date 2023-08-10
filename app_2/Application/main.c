@@ -16,6 +16,8 @@ int main()
     log_init();
     log_print("Bootloader\n");
     log_print("NGUYEN THANH TUNG\n");   
+    // after hardware Init
+
     while (1)
     {
         /* code */

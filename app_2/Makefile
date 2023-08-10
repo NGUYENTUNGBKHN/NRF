@@ -44,7 +44,7 @@ LDFLAGS += -Wl,--gc-sections
 # use newlib in nano version
 LDFLAGS += --specs=nano.specs
 
-LIB_FILES += -lc -lnosys -lm
+LIB_FILES += -lc -lm
 
 SRC_FILES +=\
 	$(LIB_NRF)/modules/nrfx/mdk/gcc_startup_nrf52840.S \
@@ -60,6 +60,8 @@ SRC_FILES +=\
 	$(LIB_NRF)/external/segger_rtt/SEGGER_RTT_printf.c \
 	$(LIB_NRF)/external/segger_rtt/SEGGER_RTT_Syscalls_GCC.c \
   	$(ROOT_PROJ)/Application/main.c \
+	$(ROOT_PROJ)/Application/syscall.c \
+	$(ROOT_PROJ)/Application/sysmem.c \
 	$(ROOT_PROJ)/Middleware/log/log.c \
 	$(ROOT_PROJ)/Drivers/drv_uart/drv_uart.c \
 	$(ROOT_PROJ)/Drivers/drv_gpio/drv_gpio.c \
