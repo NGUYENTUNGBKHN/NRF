@@ -61,7 +61,7 @@
         "doxdocgen.file.copyrightTag": [],
         "todo-tree.tree.showScanModeButton": false,
         "enableTelemetry": false,
-        "window.zoomLevel": -2,
+        "window.zoomLevel": -1,
         "git.enableSmartCommit": true,
         "git.autofetch": true,
         "terminal.integrated.profiles.windows": {

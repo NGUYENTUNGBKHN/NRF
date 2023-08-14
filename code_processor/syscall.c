@@ -60,7 +60,7 @@
 
 #ifdef DEBUG_BY_ITM
 // Debug Exception and Monitor Control Register base address
-#define DEMCR			    *((volatile uint32_t*) 0xE000EDFCU)
+#define DEMCR			*((volatile uint32_t*) 0xE000EDFCU)
 
 /* ITM register address */
 #define ITM_STIMULUS_PORTO	*((volatile uint32_t*) 0xE0000000)
