@@ -1,0 +1,5 @@
+h
+loadfile D:/tung/embedded_linx/nrf/NRF/code_processor/_build/code.hex
+r
+g
+exit
