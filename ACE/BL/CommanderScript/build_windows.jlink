@@ -1,5 +1,5 @@
 h
-loadfile D:/tung/embedded_linx/nrf/NRF/ACE/BL/_build/bootloader.hex
+loadfile G:/Embedded_linux/nrf/NRF/ACE/BL/_build/bootloader.hex
 r
 g
 exit

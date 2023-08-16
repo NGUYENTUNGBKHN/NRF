@@ -11,14 +11,13 @@
 ******************************************************************************/
 #include "main.h"
 
-#define APP_ADDRESS 0x100000
+#define APP_ADDRESS 0x000E0000
 
 int main()
 {
-    // SCB->VTOR = APP_ADDRESS;
-    SEGGER_RTT_printf(0, "Application\n");
+    SCB->VTOR = APP_ADDRESS;
     log_init();
-    log_print("Bootloader\n");
+    log_print("application\n");
     log_print("NGUYEN THANH TUNG\n");   
     // after hardware Init
 
