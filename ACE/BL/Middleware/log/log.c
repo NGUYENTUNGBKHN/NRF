@@ -16,7 +16,7 @@
 #include <string.h>
 
 #define LOG_USE_UART
-#define LOG_USE_SEGGER_RTT
+#undef LOG_USE_SEGGER_RTT
 static bool flag_log_init = false;
 
 void log_uart_handle(uint32_t event, void *mess)

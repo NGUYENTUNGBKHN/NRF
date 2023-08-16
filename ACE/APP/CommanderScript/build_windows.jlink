@@ -1,5 +1,5 @@
 h
-loadfile D:/tung/embedded_linx/nrf/NRF/app_2/_build/app_2.hex
+loadfile D:/tung/embedded_linx/nrf/NRF/ACE/APP/_build/app.hex
 r
 g
 exit

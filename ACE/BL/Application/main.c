@@ -11,7 +11,7 @@
 ******************************************************************************/
 #include "main.h"
 
-#define APP_ADDRESS 0x00100000
+#define APP_ADDRESS 0x000E0000
 
 static void jump_to_application();
 static void jump_to_bootloader(); 
@@ -24,6 +24,7 @@ int main()
     // after hardware Init
     if (1)
     {
+        log_print("Jmp to App\n");  
         jump_to_application();
     }
     else

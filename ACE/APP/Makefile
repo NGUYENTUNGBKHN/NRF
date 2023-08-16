@@ -3,10 +3,10 @@ OUTPUT_PROJ_DIR := _build
 OUTPUT_OBJS_DIR := $(OUTPUT_PROJ_DIR)/objs/
 
 ROOT_PROJ := ./
-LIB_NRF := ../
+LIB_NRF := ../../
 
 $(OUTPUT_PROJ_DIR)/$(TARGETS).out:\
-	LINKER_SCRIPT := uart_gcc_nrf52.ld
+	LINKER_SCRIPT := ace_app.ld
 
 CPU=-mcpu=cortex-m4 -mthumb -mabi=aapcs
 FPU=-mfloat-abi=hard -mfpu=fpv4-sp-d16

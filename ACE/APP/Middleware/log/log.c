@@ -16,7 +16,7 @@
 #include <string.h>
 
 #define LOG_USE_UART
-#define LOG_USE_SEGGER_RTT
+#undef LOG_USE_SEGGER_RTT
 static bool flag_log_init = false;
 
 void log_uart_handle(uint32_t event, void *mess)
@@ -50,6 +50,7 @@ sta_code_t log_init()
     err = drv_uart_init(DRV_UART_INSTAN_0,log_uart_handle);
     if (err == STA_CODE_FAIL || err == STA_CODE_EXISTED)
     {
+        SEGGER_RTT_printf(0, "ERROR %s %d code = %d \n",__func__,__LINE__, err);
         return STA_CODE_FAIL;
     }
     

@@ -15,8 +15,8 @@
 
 int main()
 {
-    SCB->VTOR = APP_ADDRESS;
-    
+    // SCB->VTOR = APP_ADDRESS;
+    SEGGER_RTT_printf(0, "Application\n");
     log_init();
     log_print("Bootloader\n");
     log_print("NGUYEN THANH TUNG\n");   

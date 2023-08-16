@@ -3,7 +3,7 @@ OUTPUT_PROJ_DIR := _build
 OUTPUT_OBJS_DIR := $(OUTPUT_PROJ_DIR)/objs/
 
 ROOT_PROJ := ./
-LIB_NRF := ../
+LIB_NRF := ../../
 
 $(OUTPUT_PROJ_DIR)/$(TARGETS).out:\
 	LINKER_SCRIPT := uart_gcc_nrf52.ld
