@@ -1,0 +1,5 @@
+h
+loadfile /media/nttung/E0FE3564FE35345E/Users/TUNG/Desktop/smartkey/chong_cuop_ble/code/_build/nrf52_smartkey.hex
+r
+g
+exit
