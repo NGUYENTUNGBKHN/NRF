@@ -1,5 +1,0 @@
-h
-loadfile G:/Embedded_linux/nrf/NRF/ACE/APP/_build/app.bin 0x000E0000
-r
-g
-exit
