@@ -23,7 +23,8 @@
       "stdio.h": "c",
       "nrf52_eval_kit.h": "c",
       "common.h": "c",
-      "drv_gpio.h": "c"
+      "drv_gpio.h": "c",
+      "sdk_common.h": "c"
     },
     
     "C_Cpp.errorSquiggles": "disabled",
