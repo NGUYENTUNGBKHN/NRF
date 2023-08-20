@@ -1,0 +1,126 @@
+
+DEBUG?=1
+
+MK:=mkdir
+RM:=rm -r
+
+
+ifeq (1,$(DEBUG))
+NO_ECHO:=
+else
+NO_ECHO:=@
+endif
+
+
+ifneq (,$(filter clean,$(MAKECMDGOALS)))
+
+OTHER_GOALS=$(filter-out clean,$(MAKECMDGOALS))
+
+ifneq (,$(OTHER_GOALS))
+$(info Cannot make anything in parallel with "clean".)
+$(info Execute "$(MAKE) clean \
+  $(foreach goal, $(OTHER_GOALS),&& $(MAKE) $(goal))" instead.)
+$(error Cannot continue)
+else # other goals empty
+.PHONY: clean
+
+clean:
+	$(RM) $(OUTPUT_PROJ_DIR)
+
+endif #  end goals
+
+else # not clean
+
+
+# $1 : target name
+# $2 : object files
+# $3 : source file
+define bind_src_with_obj
+$(eval $(2)		:=	$(3))\
+$(eval $(2)_TGT	:= 	$(1))\
+$(eval $(2): Makefile | $(dir $(2)).)
+endef
+
+
+# $1 : target name
+# $2 : src file
+define get_objects_file_name
+$(OUTPUT_PROJ_DIR)/$(strip $(1))/$(notdir $(2:%.s=%.s.o)).o
+endef
+
+
+# $1 : target name
+# $2 : source files
+define get_objects_files
+$(foreach src_file, $(2),\
+	$(eval obj_file:=$(call get_objects_file_name,$(1),$(src_file)))\
+	$(eval DEPENDENCES += $(obj_file:%.o=%.d))\
+	$(call bind_src_with_obj,$(1),$(obj_file),$(src_file))\
+	$(obj_file))
+endef
+
+# $1 : target name
+# $2 : include folder
+define get_paths
+$(foreach inc,$(2),-I$(inc))
+endef
+
+# $1 : target name
+# $2 : 
+define target_specific
+$($(addsuffix, _$(strip $(1)),$(2)))
+endef
+
+
+# $1 : target name
+# $2 : output file
+define prepare_build
+$(eval DEPENDENCES:=)\
+$(eval $(2): \
+	$(call get_objects_files, $(1),\
+		$(SRC_FILES) $(call target_specific,SRC_FILES,$(1))))\
+$(-include $(DEPENDENCES))\
+$(INC_PATHS_$(strip $(1)):=\
+	$(call get_paths, $(1),\
+		$(INC_FOLDER) $(call target_specific,INC_FOLDER,$(1))))
+endef
+
+# $1 : target name
+define target_define
+$(eval OUTPUT_FILE=$(OUTPUT_PROJ_DIR)/$(strip $(1)))\
+$(eval $(1): $(OUTPUT_FILE).out $(OUTPUT_FILE).hex $(OUTPUT_FILE).bin\
+		; $(NO_ECHO)echo DONE $(strip $(1)))\
+$(call prepare_build,$(1),$(OUTPUT_FILE).out)
+endef
+
+
+.PHONY: all $(TARGETS)
+
+all: $(TARGETS)
+
+$(OUTPUT_PROJ_DIR):
+	$(MK) $@
+$(OUTPUT_PROJ_DIR)/%/.: | $(OUTPUT_PROJ_DIR)
+	cd $(OUTPUT_PROJ_DIR) && $(MK) $*
+
+
+%.out:
+
+
+%.c.o:
+	$(call run,$(CC),$(CCFLAGS),Compiling)
+
+%.cpp.o:
+	$(call run,$(CC),$(CCFLAGS) $(CXXFLAG),Compiling)
+
+%.S.o %.s.o.o:
+	$(call run, $(CC), $(ASMFLAG), Assembling)
+
+
+
+endif # end clean
+
+
+
+
+
