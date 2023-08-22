@@ -98,11 +98,11 @@ define prepare_build
 $(eval DEPENDENCIES:=)\
 $(eval $(2) : \
     $(call get_object_files, $(1), \
-        $(SRC_FILES) $(call target_specifies SRC_FILES, $(1))))\
+        $(SRC_FILES) $(call target_specifies,SRC_FILES, $(1))))\
 $(eval -include $(DEPENDENCIES))\
 $(eval INC_PATHS_code :=\
     $(call get_inc_path, $(1),\
-        $(INC_FOLDER) $(call target_specifies INC_FOLDER, $(1))))
+        $(INC_FOLDER) $(call target_specifies,INC_FOLDER, $(1))))
 endef
 
 INC_PATHS = $(call target_specifies, INC_PATHS, $($@_TGT))
