@@ -57,11 +57,12 @@ static void jump_to_application()
     reset_handler = (void*)handler_address;
 
     reset_handler();
-
 }
 
 static void jump_to_bootloader()
 {
-
+    log_init("jumped to bootloader \n");
 }
+
+
 

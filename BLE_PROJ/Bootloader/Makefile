@@ -220,4 +220,19 @@ include $(COMMON_DIR)/Makefile.common
 
 $(foreach target,$(TARGETS),$(call target_define,$(target)))
 
+SDK_CONFIG_FILE := $(ROOT_PROJ)/config/sdk_config.h
+CMSIS_CONFIG_TOOL := $(LIB_NRF)/external_tools/cmsisconfig/CMSIS_Configuration_Wizard.jar
+sdk_config:
+	java -jar $(CMSIS_CONFIG_TOOL) $(SDK_CONFIG_FILE)
 
+
+flash: default
+	Jlink.exe -if swd -device nRF52840_xxAA -speed 4000 -CommanderScript CommanderScript/build_windows.jlink
+
+erase:
+	Jlink.exe -if swd -device nRF52840_xxAA -speed 4000 -CommanderScript CommanderScript/erase_windows.jlink
+
+softdevice:
+	Jlink.exe -if swd -device nRF52840_xxAA -speed 4000 -CommanderScript CommanderScript/sd_windows.jlink
+
+  
