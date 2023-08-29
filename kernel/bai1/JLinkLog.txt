@@ -1,0 +1,142 @@
+T495C 000:548.474   SEGGER J-Link V7.88i Log File
+T495C 000:549.729   DLL Compiled: Jun 21 2023 11:52:57
+T495C 000:549.741   Logging started @ 2023-08-28 07:04
+T495C 000:549.752 - 549.758ms
+T495C 000:549.773 JLINK_SetWarnOutHandler(...)
+T495C 000:550.154 - 0.386ms
+T495C 000:550.167 JLINK_OpenEx(...)
+T495C 000:555.024   Firmware: J-Link OB-STM32F072-CortexM compiled Mar  8 2025 11:15:54
+T495C 000:555.887   Firmware: J-Link OB-STM32F072-CortexM compiled Mar  8 2025 11:15:54
+T495C 000:556.474   Decompressing FW timestamp took 109 us
+T495C 000:564.649   Hardware: V1.00
+T495C 000:564.677   S/N: 4294967295
+T495C 000:564.693   OEM: SEGGER
+T495C 000:564.708   Feature(s): GDB, RDI, FlashBP, FlashDL, JFlash, RDDI
+T495C 001:141.860   Bootloader: (Could not read)
+T495C 001:144.110   TELNET listener socket opened on port 19021
+T495C 001:144.239   WEBSRV WEBSRV_Init(): Starting webserver thread(s)
+T495C 001:144.397   WEBSRV Webserver running on local port 19080
+T495C 001:144.482   Looking for J-Link GUI Server exe at: C:\Keil_v5\ARM\Segger\JLinkGUIServer.exe
+T495C 001:144.641   Looking for J-Link GUI Server exe at: C:\Program Files\SEGGER\JLink_V788i\JLinkGUIServer.exe
+T495C 001:144.694   Forking J-Link GUI Server: C:\Program Files\SEGGER\JLink_V788i\JLinkGUIServer.exe
+T495C 001:820.048   J-Link GUI Server info: "J-Link GUI server V7.88i "
+T495C 001:822.541 - 1272.380ms returns "O.K."
+T495C 001:822.915 JLINK_GetEmuCaps()
+T495C 001:822.920 - 0.006ms returns 0xB8EA5A33
+T495C 001:823.265 JLINK_TIF_GetAvailable(...)
+T495C 001:823.749 - 0.488ms
+T495C 001:823.773 JLINK_SetErrorOutHandler(...)
+T495C 001:823.776 - 0.005ms
+T495C 001:823.928 JLINK_ExecCommand("ProjectFile = "D:\tung\embedded_linx\nrf\NRF\kernel\bai1\JLinkSettings.ini"", ...). 
+T495C 001:857.237   Ref file found at: C:\Keil_v5\ARM\Segger\JLinkDevices.ref
+T495C 001:857.738   REF file references invalid XML file: C:\Program Files\SEGGER\JLink_V788i\JLinkDevices.xml
+T495C 001:916.355 - 92.436ms returns 0x00
+T495C 001:916.414 JLINK_ExecCommand("Device = nRF52840_xxAA", ...). 
+T495C 001:917.412   Device "NRF52840_XXAA" selected.
+T495C 001:919.071 - 2.655ms returns 0x00
+T495C 001:919.081 JLINK_ExecCommand("DisableConnectionTimeout", ...). 
+T495C 001:919.088 - 0.003ms returns 0x01
+T495C 001:919.093 JLINK_GetHardwareVersion()
+T495C 001:919.096 - 0.005ms returns 10000
+T495C 001:919.108 JLINK_GetDLLVersion()
+T495C 001:919.112 - 0.006ms returns 78809
+T495C 001:919.117 JLINK_GetOEMString(...)
+T495C 001:919.121 JLINK_GetFirmwareString(...)
+T495C 001:919.125 - 0.005ms
+T495C 001:919.132 JLINK_GetDLLVersion()
+T495C 001:919.136 - 0.005ms returns 78809
+T495C 001:919.140 JLINK_GetCompileDateTime()
+T495C 001:919.144 - 0.005ms
+T495C 001:919.149 JLINK_GetFirmwareString(...)
+T495C 001:919.152 - 0.005ms
+T495C 001:919.157 JLINK_GetHardwareVersion()
+T495C 001:919.161 - 0.005ms returns 10000
+T495C 001:919.165 JLINK_GetSN()
+T495C 001:919.170 - 0.006ms returns -1
+T495C 001:919.174 JLINK_GetOEMString(...)
+T495C 003:213.542 JLINK_TIF_Select(JLINKARM_TIF_JTAG)
+T495C 003:214.051   
+  ***** Error: 
+T495C 003:214.061   Debugger tries to select target interface JTAG.
+This interface is not supported by the connected emulator.
+Selection will be ignored by the DLL.
+T495C 003:214.066 - 0.526ms returns 0x01
+T495C 003:214.085 JLINK_HasError()
+T495C 003:214.098 JLINK_SetSpeed(5000)
+T495C 003:214.103 - 0.007ms
+T495C 003:214.238 JLINK_HasError()
+T495C 003:214.246 JLINK_SetResetType(JLINKARM_RESET_TYPE_NORMAL)
+T495C 003:214.250 - 0.006ms returns JLINKARM_RESET_TYPE_NORMAL
+T495C 003:214.255 JLINK_Reset()
+T495C 003:217.550   InitTarget() start
+T495C 003:217.558    J-Link Script File: Executing InitTarget()
+T495C 003:224.132   InitTarget() end - Took 6.56ms
+T495C 003:225.416   Found SW-DP with ID 0x2BA01477
+T495C 003:234.417   Old FW that does not support reading DPIDR via DAP jobs
+T495C 003:243.124   DPv0 detected
+T495C 003:243.135   CoreSight SoC-400 or earlier
+T495C 003:243.141   Scanning AP map to find all available APs
+T495C 003:249.784   AP[2]: Stopped AP scan as end of AP map has been reached
+T495C 003:250.129   AP[0]: AHB-AP (IDR: 0x24770011)
+T495C 003:250.138   AP[1]: JTAG-AP (IDR: 0x02880000)
+T495C 003:250.144   Iterating through AP map to find AHB-AP to use
+T495C 003:258.651   AP[0]: Core found
+T495C 003:258.668   AP[0]: AHB-AP ROM base: 0xE00FF000
+T495C 003:263.220   CPUID register: 0x410FC241. Implementer code: 0x41 (ARM)
+T495C 003:263.416   Found Cortex-M4 r0p1, Little endian.
+T495C 003:264.490   -- Max. mem block: 0x00002220
+T495C 003:265.527   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T495C 003:266.241   CPU_WriteMem(4 bytes @ 0xE000EDF0)
+T495C 003:266.960   CPU_ReadMem(4 bytes @ 0xE0002000)
+T495C 003:267.731   FPUnit: 6 code (BP) slots and 2 literal slots
+T495C 003:267.741   CPU_ReadMem(4 bytes @ 0xE000EDFC)
+T495C 003:268.432   CPU_WriteMem(4 bytes @ 0xE000EDFC)
+T495C 003:269.185   CPU_ReadMem(4 bytes @ 0xE0001000)
+T495C 003:269.947   CPU_WriteMem(4 bytes @ 0xE0001000)
+T495C 003:270.747   CPU_ReadMem(4 bytes @ 0xE000ED88)
+T495C 003:271.493   CPU_WriteMem(4 bytes @ 0xE000ED88)
+T495C 003:272.312   CPU_ReadMem(4 bytes @ 0xE000ED88)
+T495C 003:272.970   CPU_WriteMem(4 bytes @ 0xE000ED88)
+T495C 003:273.778   CoreSight components:
+T495C 003:273.788   ROMTbl[0] @ E00FF000
+T495C 003:273.795   CPU_ReadMem(64 bytes @ 0xE00FF000)
+T495C 003:275.074   CPU_ReadMem(32 bytes @ 0xE000EFE0)
+T495C 003:276.051   [0][0]: E000E000 CID B105E00D PID 000BB00C SCS-M7
+T495C 003:276.061   CPU_ReadMem(32 bytes @ 0xE0001FE0)
+T495C 003:277.028   [0][1]: E0001000 CID B105E00D PID 003BB002 DWT
+T495C 003:277.038   CPU_ReadMem(32 bytes @ 0xE0002FE0)
+T495C 003:278.039   [0][2]: E0002000 CID B105E00D PID 002BB003 FPB
+T495C 003:278.049   CPU_ReadMem(32 bytes @ 0xE0000FE0)
+T495C 003:278.994   [0][3]: E0000000 CID B105E00D PID 003BB001 ITM
+T495C 003:279.004   CPU_ReadMem(32 bytes @ 0xE0040FE0)
+T495C 003:279.981   [0][4]: E0040000 CID B105900D PID 000BB9A1 TPIU
+T495C 003:279.991   CPU_ReadMem(32 bytes @ 0xE0041FE0)
+T495C 003:281.037   [0][5]: E0041000 CID B105900D PID 000BB925 ETM
+T495C 003:281.096   CPU is running
+T495C 003:281.107   CPU_WriteMem(4 bytes @ 0xE000EDF0)
+T495C 003:281.838   CPU is running
+T495C 003:281.848   CPU_WriteMem(4 bytes @ 0xE000EDFC)
+T495C 003:282.607   Reset: Halt core after reset via DEMCR.VC_CORERESET.
+T495C 003:283.702   Reset: Reset device via AIRCR.SYSRESETREQ.
+T495C 003:283.711   CPU is running
+T495C 003:283.717   CPU_WriteMem(4 bytes @ 0xE000ED0C)
+T495C 003:339.109   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T495C 003:339.923   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T495C 003:346.199   CPU_WriteMem(4 bytes @ 0xE000EDFC)
+T495C 003:353.079   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T495C 003:359.111   CPU_WriteMem(4 bytes @ 0xE0002000)
+T495C 003:360.018   CPU_ReadMem(4 bytes @ 0xE000EDFC)
+T495C 003:360.823   CPU_ReadMem(4 bytes @ 0xE0001000)
+T495C 003:361.631 - 147.381ms
+T495C 003:361.645 JLINK_GetId()
+T495C 003:362.319 - 0.679ms returns 0x2BA01477
+T495C 003:365.380 JLINK_GetFirmwareString(...)
+T495C 003:365.389 - 0.010ms
+T4670 058:912.789     JLINK_RTTERMINAL_Control(Cmd = JLINKARM_RTTERMINAL_CMD_STOP)
+T4670 058:913.243     - 0.456ms returns 0x01
+T495C 077:503.041 JLINK_Close()
+T495C 077:503.701   CPU_ReadMem(4 bytes @ 0xE0001000)
+T495C 077:504.620   CPU_WriteMem(4 bytes @ 0xE0001004)
+T495C 077:524.093 - 21.073ms
+T495C 077:524.117   
+T495C 077:524.121   Closed
