@@ -1,0 +1,14 @@
+.\objects\main.o: main.c
+.\objects\main.o: C:\Users\nguyen-thanh-tung\AppData\Local\Arm\Packs\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf.h
+.\objects\main.o: C:\Users\nguyen-thanh-tung\AppData\Local\Arm\Packs\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840.h
+.\objects\main.o: C:\Users\nguyen-thanh-tung\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm4.h
+.\objects\main.o: C:\Keil_v5\ARM\arm_compilerv5\Bin\..\include\stdint.h
+.\objects\main.o: C:\Users\nguyen-thanh-tung\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h
+.\objects\main.o: C:\Users\nguyen-thanh-tung\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h
+.\objects\main.o: C:\Users\nguyen-thanh-tung\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h
+.\objects\main.o: C:\Users\nguyen-thanh-tung\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h
+.\objects\main.o: C:\Users\nguyen-thanh-tung\AppData\Local\Arm\Packs\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\system_nrf52840.h
+.\objects\main.o: C:\Users\nguyen-thanh-tung\AppData\Local\Arm\Packs\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840_bitfields.h
+.\objects\main.o: C:\Users\nguyen-thanh-tung\AppData\Local\Arm\Packs\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf51_to_nrf52840.h
+.\objects\main.o: C:\Users\nguyen-thanh-tung\AppData\Local\Arm\Packs\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52_to_nrf52840.h
+.\objects\main.o: C:\Users\nguyen-thanh-tung\AppData\Local\Arm\Packs\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\compiler_abstraction.h
