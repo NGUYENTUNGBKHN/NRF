@@ -7,7 +7,31 @@
 #define CNF_POS_C_PULL  2
 #define CNF_POS_D_DRIVE 8
 
+
+#define SYST_CSR_ENABLE    0
+#define SYST_CSR_TICKINT    1
+#define SYST_CSR_CLKSRC     2
+#define SYST_CSR_CNTFLAG    16
+
 NRF_GPIO_Type *gpio = NRF_P0;
+
+uint32_t func1[40];
+uint32_t func2[40];
+
+uint32_t *sp_func1 = &func1[40];
+uint32_t *sp_func2 = &func2[40]; 
+
+void systick(int time)
+{
+    SysTick_Type *sys = SysTick;
+
+    sys->CTRL = (uint32_t)((1 << SYST_CSR_ENABLE) |
+                            (1 << SYST_CSR_TICKINT) |
+                            (1 << SYST_CSR_CLKSRC));
+    sys->LOAD = time - 1;
+    sys->VAL = 0; 
+    NVIC_EnableIRQ(SysTick_IRQn);
+}
 
 void timer_init()
 {
@@ -60,15 +84,27 @@ void TIMER0_IRQHandler()
     }
 }
 
+static volatile int cnt = 0;
+void SysTick_Handler()
+{
+    cnt ++;
+}
+
+int GetSysTick()
+{
+    int _tick;
+    __disable_irq();
+    _tick = cnt;
+	__enable_irq();
+    return _tick;
+}
+
 int main()
 {
-
+	
     gpio_init();
     timer_init();
-    
-
-    // gpio->DIR |= 1 << 13;
-    
+    systick(1000);
     
 
     while (1)
