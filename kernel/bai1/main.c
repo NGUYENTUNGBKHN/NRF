@@ -90,6 +90,22 @@ void TIMER0_IRQHandler()
     }
 }
 
+void _func1()
+{
+    while(1)
+    {
+
+    }
+}
+
+void _func2()
+{
+    while(1)
+    {
+        
+    }
+}
+
 static volatile int cnt = 0;
 void SysTick_Handler()
 {
@@ -112,6 +128,23 @@ int main()
     timer_init();
     systick(1000);
     
+    *(--sp_func1) = (1 << 24);          // xPSR
+    *(--sp_func1) = (uint32_t)&_func1;   // PC
+    *(--sp_func1) = 0x0000000DU;        // LR
+    *(--sp_func1) = 0x0000000EU;        // R12
+    *(--sp_func1) = 0x0000000AU;        // R3
+    *(--sp_func1) = 0x0000000EU;        // R2
+    *(--sp_func1) = 0x0000000AU;        // R1
+    *(--sp_func1) = 0x0000000DU;        // R0
+
+    *(--sp_func2) = (1 << 24);          // xPSR
+    *(--sp_func2) = (uint32_t)&_func2;   // PC
+    *(--sp_func2) = 0x0000000DU;        // LR
+    *(--sp_func2) = 0x0000000EU;        // R12
+    *(--sp_func2) = 0x0000000AU;        // R3
+    *(--sp_func2) = 0x0000000EU;        // R2
+    *(--sp_func2) = 0x0000000AU;        // R1
+    *(--sp_func2) = 0x0000000DU;        // R0
 
     while (1)
     {
