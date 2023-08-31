@@ -4,6 +4,7 @@ int __svc(0x01) svc_service_sub(int x, int y);
 int __svc(0x02) svc_service_mul(int x, int y);
 int __svc(0x03) svc_service_div(int x, int y);
 
+void SVC_Handler_C(unsigned int *args);
 
 int x, y, z;
 int main(void)
@@ -32,6 +33,18 @@ __asm void SVC_Handler(void)
 	ITE EQ
 	MRSEQ	R0, MSP
 	MRSNE 	R0, PSP
+	B		__cpp(SVC_Handler_C)
 }
+
+void SVC_Handler_C(unsigned int *args)
+{
+	unsigned int svc_number;
+	svc_number = ((char*)args[6])[-2];
+
+
+
+}
+
+
 
 
