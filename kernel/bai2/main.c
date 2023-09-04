@@ -41,7 +41,27 @@ void SVC_Handler_C(unsigned int *args)
 	unsigned int svc_number;
 	svc_number = ((char*)args[6])[-2];
 
-
+	switch (svc_number)
+	{
+	case 0:
+		/* code */
+		args[0] = args[0] + args[1];
+		break;
+	case 1:
+		/* code */
+		args[0] = args[0] - args[1];
+		break;
+	case 2:
+		/* code */
+		args[0] = args[0] * args[1];
+		break;
+	case 3:
+		/* code */
+		args[0] = args[0] / args[1];
+		break;
+	default:
+		break;
+	}
 
 }
 
