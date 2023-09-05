@@ -3,7 +3,7 @@
  * Auto generated Run-Time-Environment Configuration File
  *      *** Do not modify ! ***
  *
- * Project: 'bai2' 
+ * Project: 'osKernel' 
  * Target:  'NRF52840' 
  */
 

@@ -3,8 +3,8 @@
  * Auto generated Run-Time-Environment Configuration File
  *      *** Do not modify ! ***
  *
- * Project: 'bai2' 
- * Target:  'NRF52840' 
+ * Project: 'osKernel' 
+ * Target:  'Target 1' 
  */
 
 #ifndef RTE_COMPONENTS_H
