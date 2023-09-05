@@ -31,7 +31,7 @@ __asm void SVC_Handler(void)
 {
 	TST LR, #4
 	ITE EQ
-	MRSEQ	R0, MSP
+	MRSEQ	  R0, MSP
 	MRSNE 	R0, PSP
 	B		__cpp(SVC_Handler_C)
 }
