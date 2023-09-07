@@ -381,12 +381,32 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>Application</GroupName>
+          <GroupName>user</GroupName>
           <Files>
             <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>osKernel</GroupName>
+          <Files>
+            <File>
+              <FileName>osKernel.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\osKernel.c</FilePath>
+            </File>
+            <File>
+              <FileName>osKernel.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>.\osKernel.s</FilePath>
+            </File>
+            <File>
+              <FileName>osKernel.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\osKernel.h</FilePath>
             </File>
           </Files>
         </Group>
