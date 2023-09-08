@@ -7,6 +7,8 @@ extern "C"
 #endif
 
 #include <stdint.h>
+#include "nrf.h"                        // Device header
+
 
 /* CODE */
 void osKernelLaunch(uint32_t quanta);

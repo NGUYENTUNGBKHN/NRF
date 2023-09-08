@@ -39,13 +39,13 @@ void osSchedulerLaunch(void);
 
 void osKernelStackInit(int i)
 {
-    tcbs[i].stackPt = &TCB_STACK[i][STACKSIZE - 16];
-    TCB_STACK[i][STACKSIZE - 1] = 0x01000000;
+    tcbs[i].stackPt = &TCB_STACK[i][STACKSIZE - 16];        
+    TCB_STACK[i][STACKSIZE - 1] = 0x01000000;               //  xPSR register
 }
 
 uint8_t osKernelAddThreads(void(*task0)(void),
                             void(*task1)(void),
-                            void(*task2)(void));
+                            void(*task2)(void))
 {
 
     __disable_irq();
@@ -53,14 +53,14 @@ uint8_t osKernelAddThreads(void(*task0)(void),
     tcbs[1].nextPt = &tcbs[2];
     tcbs[2].nextPt = &tcbs[0];
 
-    osKernelInit(0);
-    TCB_STACK[0][STACKSIZE - 2] = (int32_t)(task0);
+    osKernelStackInit(0);
+    TCB_STACK[0][STACKSIZE - 2] = (int32_t)(task0); // PC register
 
-    osKernelInit(1);
-    TCB_STACK[1][STACKSIZE - 2] = (int32_t)(task1);
+    osKernelStackInit(1);
+    TCB_STACK[1][STACKSIZE - 2] = (int32_t)(task1); // PC register
 
-    osKernelInit(2);
-    TCB_STACK[2][STACKSIZE - 2] = (int32_t)(task2);
+    osKernelStackInit(2);
+    TCB_STACK[2][STACKSIZE - 2] = (int32_t)(task2); // PC register
 
     currentPt = &tcbs[0];
 
