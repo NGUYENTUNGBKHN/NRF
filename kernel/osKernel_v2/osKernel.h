@@ -20,6 +20,13 @@ extern "C"
 #include <stdint.h>
 #include "nrf.h"                        // Device header
 
+
+typedef struct tcb_s
+{
+    int32_t *stackPt;
+    struct tcb_s *nextPt; 
+}tcb_t, *tcb_p;
+
 void osKernelLaunch(uint32_t quanta);
 
 void osKernelInit(void);
