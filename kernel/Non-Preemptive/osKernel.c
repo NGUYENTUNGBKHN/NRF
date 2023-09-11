@@ -79,8 +79,7 @@ void osKernelLaunch(uint32_t quanta)
     SysTick->CTRL = 0;
     SysTick->VAL = 0;
     SysTick->LOAD = (quanta* MILLIS_PRESCALER) - 1;
-    SYSPRI3 = (SYSPRI3&0x00FFFFFF) | 0xE0000000;    // set priority for systick
-
+    SYSPRI3 = (SYSPRI3&0x00FFFFFF) | 0xE0000000;
 
     SysTick->CTRL = 0x00000007;
     osSchedulerLaunch();
