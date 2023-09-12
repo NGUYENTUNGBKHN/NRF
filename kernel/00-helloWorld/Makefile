@@ -22,6 +22,7 @@ OPT= -O3 -g3
 CCFLAGS= $(MCU) $(OPT)
 CCFLAGS+= -Wall -Werror -ffunction-sections -fdata-sections -fno-strict-aliasing
 CCFLAGS+= -fno-builtin -fshort-enums -D__STARTUP_CONFIG
+CCFLAGS+= -MMD -MP -MF"$(@:%.o=%.d)"
 
 ASMFLAG= $(MCU)
 ASMFLAG+= -g3
@@ -72,6 +73,8 @@ $(OUTPUT_PROJ_DIR)/$(TARGET).hex: $(OUTPUT_PROJ_DIR)/$(TARGET).out
 	@echo "HEX $@"
 	@$(HEX) $< $@
 
-
 clean:
 	rm -r $(OUTPUT_PROJ_DIR)
+
+-include $(wildcard */*/*.d)
+-include $(wildcard */*/*/*.d)
