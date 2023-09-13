@@ -1,0 +1,15 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+                       
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp.sp --apcs=
+interwork --depend=.\objects\os_1.d -o.\objects\os_1.o -I.\RTE\_NRF52840 -ID:\S
+oft\Keilc5_Pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include -ID:\Soft\Keilc5_Pack\Nordic
+Semiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include --predefine="__EVAL SE
+TA 1" --predefine="__UVISION_VERSION SETA 533" --predefine="_RTE_ SETA 1" --pre
+define="NRF52840_XXAA SETA 1" --predefine="_RTE_ SETA 1" --list=.\listings\os.l
+st os\os.s
+334 symbols in table

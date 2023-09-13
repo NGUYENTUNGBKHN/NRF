@@ -1,0 +1,10 @@
+--cpu=Cortex-M4.fp.sp
+".\objects\main.o"
+".\objects\oskernel.o"
+".\objects\oskernel_1.o"
+".\objects\arm_startup_nrf52840.o"
+".\objects\system_nrf52.o"
+--strict --scatter ".\Objects\osKernel_v2.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\osKernel_v2.map" -o .\Objects\osKernel_v2.axf

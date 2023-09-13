@@ -1,0 +1,139 @@
+T4E84 000:174.896   SEGGER J-Link V6.94a Log File
+T4E84 000:175.921   DLL Compiled: Jan 14 2021 11:47:39
+T4E84 000:175.945   Logging started @ 2023-09-13 07:12
+T4E84 000:175.967 - 175.978ms
+T4E84 000:176.004 JLINK_SetWarnOutHandler(...)
+T4E84 000:176.345 - 0.353ms
+T4E84 000:176.374 JLINK_OpenEx(...)
+T4E84 000:180.841   Firmware: J-Link OB-STM32F072-CortexM compiled Mar  8 2025 11:15:54
+T4E84 000:182.495   Decompressing FW timestamp took 1059 us
+T4E84 000:190.534   Hardware: V1.00
+T4E84 000:190.576   S/N: 4294967295
+T4E84 000:190.595   OEM: SEGGER
+T4E84 000:190.614   Feature(s): GDB, RDI, FlashBP, FlashDL, JFlash, RDDI
+T4E84 000:193.697   TELNET listener socket opened on port 19021
+T4E84 000:193.813   WEBSRV Starting webserver
+T4E84 000:194.090   WEBSRV Webserver running on local port 19080
+T4E84 000:194.099 - 17.728ms returns "O.K."
+T4E84 000:194.122 JLINK_GetEmuCaps()
+T4E84 000:194.127 - 0.007ms returns 0xB8EA5A33
+T4E84 000:194.375 JLINK_TIF_GetAvailable(...)
+T4E84 000:194.871 - 0.500ms
+T4E84 000:194.880 JLINK_SetErrorOutHandler(...)
+T4E84 000:194.884 - 0.006ms
+T4E84 000:195.065 JLINK_ExecCommand("ProjectFile = "E:\Project\Embedded\NRF\NRF\kernel\Non-Preemptive\JLinkSettings.ini"", ...). 
+T4E84 000:212.186   Ref file found at: D:\Soft\Keilc5\ARM\Segger\JLinkDevices.ref
+T4E84 000:219.712   XML referenced by ref file: D:\Soft\Jlink\JLinkDevices.xml
+T4E84 000:221.066   D:\Soft\Jlink\JLinkDevices.xml evaluated successfully.
+T4E84 000:297.243 - 102.210ms returns 0x00
+T4E84 000:297.314 JLINK_ExecCommand("Device = nRF52840_xxAA", ...). 
+T4E84 000:298.851   Device "NRF52840_XXAA" selected.
+T4E84 000:301.498 - 4.182ms returns 0x00
+T4E84 000:301.555 JLINK_GetHardwareVersion()
+T4E84 000:301.564 - 0.011ms returns 10000
+T4E84 000:301.570 JLINK_GetDLLVersion()
+T4E84 000:301.579 - 0.011ms returns 69401
+T4E84 000:301.584 JLINK_GetOEMString(...)
+T4E84 000:301.592 JLINK_GetFirmwareString(...)
+T4E84 000:301.596 - 0.006ms
+T4E84 000:301.605 JLINK_GetDLLVersion()
+T4E84 000:301.610 - 0.006ms returns 69401
+T4E84 000:301.615 JLINK_GetCompileDateTime()
+T4E84 000:301.619 - 0.006ms
+T4E84 000:301.626 JLINK_GetFirmwareString(...)
+T4E84 000:301.630 - 0.006ms
+T4E84 000:301.636 JLINK_GetHardwareVersion()
+T4E84 000:301.640 - 0.006ms returns 10000
+T4E84 000:301.646 JLINK_GetSN()
+T4E84 000:301.651 - 0.007ms returns -1
+T4E84 000:301.656 JLINK_GetOEMString(...)
+T4E84 001:621.281 JLINK_TIF_Select(JLINKARM_TIF_JTAG)
+T4E84 001:622.033   
+  ***** Error: 
+T4E84 001:622.069   Debugger tries to select target interface JTAG.
+This interface is not supported by the connected emulator.
+Selection will be ignored by the DLL.
+T4E84 001:622.075 - 0.797ms returns 0x01
+T4E84 001:622.099 JLINK_HasError()
+T4E84 001:622.332 JLINK_SetSpeed(5000)
+T4E84 001:622.351 - 0.022ms
+T4E84 001:622.574 JLINK_HasError()
+T4E84 001:622.584 JLINK_SetResetType(JLINKARM_RESET_TYPE_NORMAL)
+T4E84 001:622.589 - 0.006ms returns JLINKARM_RESET_TYPE_NORMAL
+T4E84 001:622.594 JLINK_Reset()
+T4E84 001:625.875   InitTarget() start
+T4E84 001:625.888    J-Link Script File: Executing InitTarget()
+T4E84 001:642.327   InitTarget() end
+T4E84 001:644.550   Found SW-DP with ID 0x2BA01477
+T4E84 001:658.144   Old FW that does not support reading DPIDR via DAP jobs
+T4E84 001:669.393   DPv0 detected
+T4E84 001:669.452   Scanning AP map to find all available APs
+T4E84 001:676.635   AP[2]: Stopped AP scan as end of AP map has been reached
+T4E84 001:676.664   AP[0]: AHB-AP (IDR: 0x24770011)
+T4E84 001:676.671   AP[1]: JTAG-AP (IDR: 0x02880000)
+T4E84 001:676.677   Iterating through AP map to find AHB-AP to use
+T4E84 001:685.250   AP[0]: Core found
+T4E84 001:685.302   AP[0]: AHB-AP ROM base: 0xE00FF000
+T4E84 001:689.768   CPUID register: 0x410FC241. Implementer code: 0x41 (ARM)
+T4E84 001:689.786   Found Cortex-M4 r0p1, Little endian.
+T4E84 001:792.728   -- Max. mem block: 0x00002220
+T4E84 001:793.838   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T4E84 001:795.497   CPU_WriteMem(4 bytes @ 0xE000EDF0)
+T4E84 001:796.783   CPU_ReadMem(4 bytes @ 0xE0002000)
+T4E84 001:797.977   FPUnit: 6 code (BP) slots and 2 literal slots
+T4E84 001:798.171   CPU_ReadMem(4 bytes @ 0xE000EDFC)
+T4E84 001:799.647   CPU_WriteMem(4 bytes @ 0xE000EDFC)
+T4E84 001:801.281   CPU_ReadMem(4 bytes @ 0xE0001000)
+T4E84 001:802.447   CPU_WriteMem(4 bytes @ 0xE0001000)
+T4E84 001:803.568   CPU_ReadMem(4 bytes @ 0xE000ED88)
+T4E84 001:804.672   CPU_WriteMem(4 bytes @ 0xE000ED88)
+T4E84 001:805.880   CPU_ReadMem(4 bytes @ 0xE000ED88)
+T4E84 001:807.000   CPU_WriteMem(4 bytes @ 0xE000ED88)
+T4E84 001:808.362   CoreSight components:
+T4E84 001:808.431   ROMTbl[0] @ E00FF000
+T4E84 001:808.467   CPU_ReadMem(64 bytes @ 0xE00FF000)
+T4E84 001:810.539   CPU_ReadMem(32 bytes @ 0xE000EFE0)
+T4E84 001:812.306   ROMTbl[0][0]: E000E000, CID: B105E00D, PID: 000BB00C SCS-M7
+T4E84 001:812.380   CPU_ReadMem(32 bytes @ 0xE0001FE0)
+T4E84 001:813.794   ROMTbl[0][1]: E0001000, CID: B105E00D, PID: 003BB002 DWT
+T4E84 001:813.866   CPU_ReadMem(32 bytes @ 0xE0002FE0)
+T4E84 001:815.638   ROMTbl[0][2]: E0002000, CID: B105E00D, PID: 002BB003 FPB
+T4E84 001:815.714   CPU_ReadMem(32 bytes @ 0xE0000FE0)
+T4E84 001:817.255   ROMTbl[0][3]: E0000000, CID: B105E00D, PID: 003BB001 ITM
+T4E84 001:817.330   CPU_ReadMem(32 bytes @ 0xE0040FE0)
+T4E84 001:818.769   ROMTbl[0][4]: E0040000, CID: B105900D, PID: 000BB9A1 TPIU
+T4E84 001:818.831   CPU_ReadMem(32 bytes @ 0xE0041FE0)
+T4E84 001:820.102   ROMTbl[0][5]: E0041000, CID: B105900D, PID: 000BB925 ETM
+T4E84 001:820.362   CPU is running
+T4E84 001:820.442   CPU_WriteMem(4 bytes @ 0xE000EDF0)
+T4E84 001:821.485   CPU is running
+T4E84 001:821.539   CPU_WriteMem(4 bytes @ 0xE000EDFC)
+T4E84 001:822.734   Reset: Halt core after reset via DEMCR.VC_CORERESET.
+T4E84 001:824.224   Reset: Reset device via AIRCR.SYSRESETREQ.
+T4E84 001:824.284   CPU is running
+T4E84 001:824.320   CPU_WriteMem(4 bytes @ 0xE000ED0C)
+T4E84 001:879.767   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T4E84 001:881.110   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T4E84 001:882.488   CPU is running
+T4E84 001:882.517   CPU_WriteMem(4 bytes @ 0xE000EDF0)
+T4E84 001:883.826   CPU is running
+T4E84 001:883.855   CPU_WriteMem(4 bytes @ 0xE000EDFC)
+T4E84 001:890.877   CPU_ReadMem(4 bytes @ 0xE000EDF0)
+T4E84 001:898.608   CPU_WriteMem(4 bytes @ 0xE0002000)
+T4E84 001:899.842   CPU_ReadMem(4 bytes @ 0xE000EDFC)
+T4E84 001:900.957   CPU_ReadMem(4 bytes @ 0xE0001000)
+T4E84 001:902.258 - 279.689ms
+T4E84 001:902.304 JLINK_GetId()
+T4E84 001:903.048 - 0.754ms returns 0x2BA01477
+T4E84 001:909.188 JLINK_GetFirmwareString(...)
+T4E84 001:909.206 - 0.021ms
+T0734 009:032.062 Looking for J-Link GUI Server exe at: D:\Soft\Keilc5\ARM\Segger\JLinkGUIServer.exe
+T0734 009:032.819 Looking for J-Link GUI Server exe at: D:\Soft\Jlink\JLinkGUIServer.exe
+T0734 009:032.970 Forking J-Link GUI Server: D:\Soft\Jlink\JLinkGUIServer.exe
+T0734 009:413.935   Failed to connect to J-Link GUI Server.
+T4E84 014:339.226 JLINK_Close()
+T4E84 014:340.182   CPU_ReadMem(4 bytes @ 0xE0001000)
+T4E84 014:341.204   CPU_WriteMem(4 bytes @ 0xE0001004)
+T4E84 014:372.649 - 33.445ms
+T4E84 014:372.675   
+T4E84 014:372.681   Closed

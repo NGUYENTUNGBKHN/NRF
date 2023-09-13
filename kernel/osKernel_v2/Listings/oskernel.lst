@@ -1,0 +1,107 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             | .text|, CODE, READONLY, ALIGN
+=2
+    2 00000000                 THUMB
+    3 00000000                 EXTERN           tcb_current
+    4 00000000                 export           SysTick_Handler
+    5 00000000                 export           osSchedulerLaunch
+    6 00000000         
+    7 00000000         SysTick_Handler
+    8 00000000 B672            CPSID            I           ; interrupt disable
+                                                            
+    9 00000002 E92D 0FF0       PUSH             {R4-R11}    ; Save R4 - R11
+   10 00000006 480D            LDR              R0,=tcb_current ; R0 = currernt
+                                                            
+   11 00000008 6801            LDR              R1,[R0]     ; R1 = *current
+   12 0000000A F8C1 D000       STR              SP,[R1]     ; current->stackPt 
+                                                            = SP
+   13 0000000E 6849            LDR              R1,[R1,#4]  ; R1 = current->nex
+                                                            tPt
+   14 00000010 6001            STR              R1,[R0]     ; current = current
+                                                            ->nextPt
+   15 00000012 F8D1 D000       LDR              SP,[R1]     ; SP = current->nex
+                                                            tPt
+   16 00000016 E8BD 0FF0       POP              {R4-R11}
+   17 0000001A B662            CPSIE            I
+   18 0000001C 4770            BX               LR
+   19 0000001E         
+   20 0000001E         
+   21 0000001E         osSchedulerLaunch
+   22 0000001E 4807            LDR              R0,=tcb_current ; assign addres
+                                                            s of tcb_current to
+                                                             R0
+   23 00000020 6802            LDR              R2,[R0]     ; R2 = *currrent
+   24 00000022 F8D2 D000       LDR              SP,[R2]     ; SP = currrent->st
+                                                            ackPt
+   25 00000026 E8BD 0FF0       POP              {R4-R11}
+   26 0000002A BC0F            POP              {R0-R3}
+   27 0000002C F85D CB04       POP              {R12}
+   28 00000030 B001            ADD              SP,SP,#4
+   29 00000032 F85D EB04       POP              {LR}
+   30 00000036 B001            ADD              SP,SP,#4
+   31 00000038 B662            CPSIE            I
+   32 0000003A 4770            BX               LR
+   33 0000003C         
+   34 0000003C                 ALIGN
+   35 0000003C                 END
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp.sp --apcs=
+interwork --depend=.\objects\oskernel_1.d -o.\objects\oskernel_1.o -I.\RTE\_NRF
+52840 -ID:\Soft\Keilc5_Pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include -ID:\Soft\Keilc5
+_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include --predefin
+e="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 533" --predefine="_RTE_ S
+ETA 1" --predefine="NRF52840_XXAA SETA 1" --predefine="_RTE_ SETA 1" --list=.\l
+istings\oskernel.lst osKernel.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ .text 00000000
+
+Symbol:  .text
+   Definitions
+      At line 1 in file osKernel.s
+   Uses
+      None
+Comment:  .text unused
+SysTick_Handler 00000000
+
+Symbol: SysTick_Handler
+   Definitions
+      At line 7 in file osKernel.s
+   Uses
+      At line 4 in file osKernel.s
+Comment: SysTick_Handler used once
+osSchedulerLaunch 0000001E
+
+Symbol: osSchedulerLaunch
+   Definitions
+      At line 21 in file osKernel.s
+   Uses
+      At line 5 in file osKernel.s
+Comment: osSchedulerLaunch used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+tcb_current 00000000
+
+Symbol: tcb_current
+   Definitions
+      At line 3 in file osKernel.s
+   Uses
+      At line 10 in file osKernel.s
+      At line 22 in file osKernel.s
+
+1 symbol
+341 symbols in table

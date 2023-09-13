@@ -1,0 +1,28 @@
+Dependencies for Project 'osKernel_v3', Target 'NRF52840': (DO NOT MODIFY !)
+CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
+F (.\app\main.c)(0x650145E9)(--c99 -c --cpu Cortex-M4.fp.sp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\os-I.\RTE\_NRF52840-ID:\Soft\Keilc5_Pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="533" -D_RTE_ -DNRF52840_XXAA -D_RTE_-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\os\os.c)(0x6501460F)(--c99 -c --cpu Cortex-M4.fp.sp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\os-I.\RTE\_NRF52840-ID:\Soft\Keilc5_Pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="533" -D_RTE_ -DNRF52840_XXAA -D_RTE_-o .\objects\os.o --omf_browse .\objects\os.crf --depend .\objects\os.d)
+F (.\os\os.s)(0x65014620)(--cpu Cortex-M4.fp.sp --pd "__EVAL SETA 1" -g --apcs=interwork -I.\RTE\_NRF52840-ID:\Soft\Keilc5_Pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include--pd "__UVISION_VERSION SETA 533" --pd "_RTE_ SETA 1" --pd "NRF52840_XXAA SETA 1" --pd "_RTE_ SETA 1"--list .\listings\os.lst --xref -o .\objects\os_1.o --depend .\objects\os_1.d)
+F (.\os\bsp.c)(0x65014639)(--c99 -c --cpu Cortex-M4.fp.sp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\os-I.\RTE\_NRF52840-ID:\Soft\Keilc5_Pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="533" -D_RTE_ -DNRF52840_XXAA -D_RTE_-o .\objects\bsp.o --omf_browse .\objects\bsp.crf --depend .\objects\bsp.d)
+F (.\os\preodic_thread.c)(0x65014655)(--c99 -c --cpu Cortex-M4.fp.sp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\os-I.\RTE\_NRF52840-ID:\Soft\Keilc5_Pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="533" -D_RTE_ -DNRF52840_XXAA -D_RTE_-o .\objects\preodic_thread.o --omf_browse .\objects\preodic_thread.crf --depend .\objects\preodic_thread.d)
+F (RTE\Device\nRF52840_xxAA\arm_startup_nrf52840.s)(0x61971DD0)(--cpu Cortex-M4.fp.sp --pd "__EVAL SETA 1" -g --apcs=interwork -I.\RTE\_NRF52840-ID:\Soft\Keilc5_Pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include--pd "__UVISION_VERSION SETA 533" --pd "_RTE_ SETA 1" --pd "NRF52840_XXAA SETA 1" --pd "_RTE_ SETA 1"--list .\listings\arm_startup_nrf52840.lst --xref -o .\objects\arm_startup_nrf52840.o --depend .\objects\arm_startup_nrf52840.d)
+F (RTE\Device\nRF52840_xxAA\system_nrf52.c)(0x61971DD0)(--c99 -c --cpu Cortex-M4.fp.sp -D__EVAL -g -O0 --apcs=interwork --split_sections -I .\os-I.\RTE\_NRF52840-ID:\Soft\Keilc5_Pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include-ID:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include-D__UVISION_VERSION="533" -D_RTE_ -DNRF52840_XXAA -D_RTE_-o .\objects\system_nrf52.o --omf_browse .\objects\system_nrf52.crf --depend .\objects\system_nrf52.d)
+I (D:\Soft\Keilc5\ARM\ARMCC\include\stdint.h)(0x5E8E20A2)
+I (D:\Soft\Keilc5\ARM\ARMCC\include\stdbool.h)(0x5E8E20A2)
+I (D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf.h)(0x61971DD0)
+I (D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840.h)(0x61971DD0)
+I (D:\Soft\Keilc5_Pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm4.h)(0x5E8EC312)
+I (D:\Soft\Keilc5_Pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8EC312)
+I (D:\Soft\Keilc5_Pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E82F8B2)
+I (D:\Soft\Keilc5_Pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8EC312)
+I (D:\Soft\Keilc5_Pack\ARM\CMSIS\5.7.0\CMSIS\Core\Include\mpu_armv7.h)(0x5E8EC312)
+I (D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\system_nrf52840.h)(0x61971DD0)
+I (D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840_bitfields.h)(0x61971DD0)
+I (D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf51_to_nrf52840.h)(0x61971DD0)
+I (D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52_to_nrf52840.h)(0x61971DD0)
+I (D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\compiler_abstraction.h)(0x61971DD0)
+I (D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf_peripherals.h)(0x61971DD0)
+I (D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52840_peripherals.h)(0x61971DD0)
+I (D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\nrf52_erratas.h)(0x61971DD0)
+I (D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\system_nrf52.h)(0x61971DD0)
+I (D:\Soft\Keilc5_Pack\NordicSemiconductor\nRF_DeviceFamilyPack\8.44.1\Device\Include\system_nrf52_approtect.h)(0x61971DD0)

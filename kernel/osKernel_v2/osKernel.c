@@ -62,6 +62,7 @@ uint8_t osKernelAddThreads(void(*task0)(void),
 
     // turn on interrupt
     __enable_irq();
+    return 1;
 }
 
 void osKernelLaunch(uint32_t quanta)
@@ -74,7 +75,7 @@ void osKernelLaunch(uint32_t quanta)
     sys->VAL = 0;
     sys->LOAD = (quanta * MILLIS_PRESCALER) - 1;
 
-    SYSPRI3 = (SYSPRI3&0x00FFFFFF) | (0xE0 << SYSPRI3_SYSTICK_POS);
+    SYSPRI3 = (SYSPRI3&0x00FFFFFF) | (0xE0000000);
     osSchedulerLaunch();
 
 }

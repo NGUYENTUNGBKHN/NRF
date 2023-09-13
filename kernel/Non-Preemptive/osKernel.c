@@ -86,3 +86,8 @@ void osKernelLaunch(uint32_t quanta)
 
 }
 
+void osKernelYield()
+{
+    
+}
+
