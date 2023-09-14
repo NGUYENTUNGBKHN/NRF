@@ -19,6 +19,8 @@ uint8_t osKernelAddThreads(void(*task0)(void),
                             void(*task1)(void),
                             void(*task2)(void));
 
+void osKernelYield(void);
+
 #ifdef __cplusplus
 }
 #endif

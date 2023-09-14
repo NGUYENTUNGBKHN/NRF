@@ -3,7 +3,7 @@
  * Auto generated Run-Time-Environment Configuration File
  *      *** Do not modify ! ***
  *
- * Project: 'Non-Preemptive' 
+ * Project: 'Cooperative-Preemption' 
  * Target:  'NRF52840' 
  */
 

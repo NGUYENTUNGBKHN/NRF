@@ -1,7 +1,7 @@
 #include <stdint.h>
 
 extern void main();
-void reset_handler()
+void Reset_Handler()
 {
     main();
 }
@@ -9,6 +9,6 @@ void reset_handler()
 __attribute((section("isr_vector")))
 uint32_t *isr_vectors[] = {
     0,
-    (uint32_t*)reset_handler,
+    (uint32_t*)Reset_Handler,
 };
 

@@ -36,8 +36,10 @@ LDFLAGS+= -Wl,--gc-sections,-Map=$(OUTPUT_PROJ_DIR)/$(TARGET).map
 LIB_FILES +=-lc -lm -lnosys 
 
 SRC_FILES=main.c\
+	startup.c\
 
-ASM_FILES=gcc_startup_nrf52840.S\
+
+ASM_FILES=\
 
 INC_FOLDER=\
 

@@ -25,7 +25,8 @@
       "common.h": "c",
       "drv_gpio.h": "c",
       "sdk_common.h": "c",
-      "nrf.h": "c"
+      "nrf.h": "c",
+      "reg.h": "c"
     },
     
     "C_Cpp.errorSquiggles": "disabled",

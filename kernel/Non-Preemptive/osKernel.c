@@ -16,9 +16,13 @@
 #include "osKernel.h"
 
 #define SYSPRI3         (*(volatile uint32_t*)0xE000ED20)
+#define INTCTRL         (*(volatile uint32_t*)0xE000ED04)
+
 
 #define BUS_FREQ   16000000
 uint32_t MILLIS_PRESCALER;
+
+#define PENDSTSET 26
 
 #define NUM_OF_THREADS  3
 #define STACKSIZE       100
@@ -79,7 +83,8 @@ void osKernelLaunch(uint32_t quanta)
     SysTick->CTRL = 0;
     SysTick->VAL = 0;
     SysTick->LOAD = (quanta* MILLIS_PRESCALER) - 1;
-    SYSPRI3 = (SYSPRI3&0x00FFFFFF) | 0xE0000000;
+    SYSPRI3 = (SYSPRI3&0x00FFFFFF) | 0xE0000000;    // set priority for systick
+
 
     SysTick->CTRL = 0x00000007;
     osSchedulerLaunch();
@@ -88,6 +93,6 @@ void osKernelLaunch(uint32_t quanta)
 
 void osKernelYield()
 {
-    
+    INTCTRL = 0x04000000;
 }
 

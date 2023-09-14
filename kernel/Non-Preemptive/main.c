@@ -22,6 +22,7 @@ void Task0(void)
     while(1)
     {
         cout1 ++;
+        // osKernelYield();
     }
 }
 
@@ -30,6 +31,7 @@ void Task1(void)
     while(1)
     {
         cout2 ++;
+        // osKernelYield();
     }
 }
 
@@ -38,6 +40,7 @@ void Task2(void)
     while(1)
     {
         cout3 ++;
+        // osKernelYield();
     }
 }
 

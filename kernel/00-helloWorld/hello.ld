@@ -18,31 +18,6 @@ SECTIONS
         KEEP(*(.isr_vector))
         *(.text)
     } > FLASH
-
-    . = ALIGN(4);
-    __etext = .;
-
-    .data : AT (__etext)
-    {
-        __data_start__ = .;
-        *(vtable)
-        *(.data*)
-
-        __data_end__ = .;
-
-    } > RAM
-
-
-
-    .bss : 
-    {
-        . = ALIGN(4);
-        __bss_start__ = .;
-        *(.bss*)
-        *(COMMON)
-        . = ALIGN(4);
-        __bss_end__ = .;
-    } > RAM
 }
 
 

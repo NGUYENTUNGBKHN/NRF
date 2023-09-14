@@ -12,30 +12,42 @@ ARM Macro Assembler    Page 1
     5 00000000                 EXPORT           osSchedulerLaunch
     6 00000000         
     7 00000000         SysTick_Handler
-    8 00000000 B672            CPSID            I
+    8 00000000 B672            CPSID            I           ; interrupt disable
+                                                            
     9 00000002 E92D 0FF0       PUSH             {R4-R11}    ; Save r4 from r11
-   10 00000006 480D            LDR              R0,=currentPt ; 
-   11 00000008 6801            LDR              R1,[R0]
-   12 0000000A F8C1 D000       STR              SP,[R1]
-   13 0000000E 6849            LDR              R1,[R1,#4]
-   14 00000010 6001            STR              R1,[R0]
-   15 00000012 F8D1 D000       LDR              SP,[R1]
-   16 00000016 E8BD 0FF0       POP              {R4-R11}
-   17 0000001A B662            CPSIE            I
-   18 0000001C 4770            BX               LR
+   10 00000006 480D            LDR              R0,=currentPt 
+                                                            ; R2 = current    
+   11 00000008 6801            LDR              R1,[R0]     ;   R1 = *current
+   12 0000000A F8C1 D000       STR              SP,[R1]     ; current->stackPt1
+                                                             = SP
+   13 0000000E 6849            LDR              R1,[R1,#4]  ; R1 = current->nex
+                                                            tPt
+   14 00000010 6001            STR              R1,[R0]     ; current = current
+                                                            ->nextPt 
+   15 00000012 F8D1 D000       LDR              SP,[R1]     ; SP = current->nex
+                                                            tPt
+   16 00000016 E8BD 0FF0       POP              {R4-R11}    ; get R4 R11
+   17 0000001A B662            CPSIE            I           ; interrupt enable
+   18 0000001C 4770            BX               LR          ; return LR
    19 0000001E         
    20 0000001E         osSchedulerLaunch
-   21 0000001E 4807            LDR              R0,=currentPt
-   22 00000020 6802            LDR              R2,[R0]
-   23 00000022 F8D2 D000       LDR              SP,[R2]
-   24 00000026 E8BD 0FF0       POP              {R4-R11}
-   25 0000002A BC0F            POP              {R0-R3}
-   26 0000002C F85D CB04       POP              {R12}
-   27 00000030 B001            ADD              SP,SP,#4
-   28 00000032 F85D EB04       POP              {LR}
-   29 00000036 B001            ADD              SP,SP,#4
-   30 00000038 B662            CPSIE            I
-   31 0000003A 4770            BX               LR
+   21 0000001E 4807            LDR              R0,=currentPt ; R0 = current
+   22 00000020 6802            LDR              R2,[R0]     ; R2 = *currrent
+   23 00000022 F8D2 D000       LDR              SP,[R2]     ; SP = current->sta
+                                                            ckPt
+   24 00000026 E8BD 0FF0       POP              {R4-R11}    ; clear R4 to R11
+   25 0000002A BC0F            POP              {R0-R3}     ; clear R0 to R3
+   26 0000002C F85D CB04       POP              {R12}       ; clear R12
+   27 00000030 B001            ADD              SP,SP,#4    ; why add sp ? skip
+                                                             SP register in sta
+                                                            ck
+   28 00000032 F85D EB04       POP              {LR}        ; get LR in stack t
+                                                            o LR register of pr
+                                                            ocessor
+   29 00000036 B001            ADD              SP,SP,#4    ; skip PC
+   30 00000038 B662            CPSIE            I           ; enable interrupt
+   31 0000003A 4770            BX               LR          ;  return LR return
+                                                             task0
    32 0000003C         
    33 0000003C                 ALIGN
    34 0000003C                 END
