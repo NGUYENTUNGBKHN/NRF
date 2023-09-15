@@ -19,6 +19,8 @@ extern "C"
 
 /* CODE */
 #include <stdint.h>
+#include "nrf.h"                        // Device header
+
 
 
 typedef struct UartType_s
@@ -27,7 +29,6 @@ typedef struct UartType_s
     uint32_t TASKS_STOPRX;      /* Stop UART receviver */
     uint32_t TASKS_STARTTX;     /* Start UART transmitter */
     uint32_t TASKS_STOPTX;      /* Stop UART transmitter */
-    uint32_t RESERVED[3];       /*  */
     uint32_t TASKS_SUSPEND;
     uint32_t EVENTS_CTS;
     uint32_t EVENTS_NCTS;
@@ -52,7 +53,7 @@ typedef struct UartType_s
 
 
 /* UART Register*/
-#define UART_BASE_ADDRESS 0x40002000
+#define UART_BASE_ADDRESS 0x40002000UL
 
 #define UART_CONFIG_HWFC_POS        0
 #define UART_CONFIG_PARITY_POS      1
@@ -120,12 +121,12 @@ typedef struct UartType_s
 
 
 /* CONFIG REGISTER */
-#define UART_CONFIG_HWFC_DIS        (0 << UART_CONFIG_HWFC_POS)
-#define UART_CONFIG_HWFC_ENB        (1 << UART_CONFIG_HWFC_POS)
-#define UART_CONFIG_PARITY_EXE      (0 << UART_CONFIG_PARITY_POS)
-#define UART_CONFIG_PARITY_INC      (0x07 << UART_CONFIG_PARITY_POS)
-#define UART_CONFIG_STOP_ONE        (0 << UART_CONFIG_STOP_POS)
-#define UART_CONFIG_STOP_TWO        (1 << UART_CONFIG_STOP_POS)
+#define UART_CONFIG_HWFC_DIS        (0UL << UART_CONFIG_HWFC_POS)
+#define UART_CONFIG_HWFC_ENB        (1UL << UART_CONFIG_HWFC_POS)
+#define UART_CONFIG_PARITY_EXE      (0UL << UART_CONFIG_PARITY_POS)
+#define UART_CONFIG_PARITY_INC      (0x07UL << UART_CONFIG_PARITY_POS)
+#define UART_CONFIG_STOP_ONE        (0UL << UART_CONFIG_STOP_POS)
+#define UART_CONFIG_STOP_TWO        (1UL << UART_CONFIG_STOP_POS)
 
 
 #define uart0 ((UartType_t*) UART_BASE_ADDRESS)     
