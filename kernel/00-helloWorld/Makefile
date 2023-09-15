@@ -9,8 +9,8 @@ CX='$(TOOLCHAIN_TUNG)/$(FREFIX)-gcc'
 AS='$(TOOLCHAIN_TUNG)/$(FREFIX)-gcc' -x assembler-with-cpp
 CP='$(TOOLCHAIN_TUNG)/$(FREFIX)-objcopy'
 SZ='$(TOOLCHAIN_TUNG)/$(FREFIX)-size'
-BIN=$(CP) -O ihex
-HEX=$(CP) -O binary -S
+HEX=$(CP) -O ihex
+BIN=$(CP) -O binary -S
 
 LINKER_SCRIPT=hello.ld
 
