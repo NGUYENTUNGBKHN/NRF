@@ -80,3 +80,13 @@ clean:
 
 -include $(wildcard */*/*.d)
 -include $(wildcard */*/*/*.d)
+
+flash:
+	Jlink.exe -if swd -device nRF52840_xxAA -speed 4000 -CommanderScript CommanderScript/build_windows.jlink
+
+erase:
+	Jlink.exe -if swd -device nRF52840_xxAA -speed 4000 -CommanderScript CommanderScript/erase_windows.jlink
+
+softdevice:
+	Jlink.exe -if swd -device nRF52840_xxAA -speed 4000 -CommanderScript CommanderScript/sd_windows.jlink
+

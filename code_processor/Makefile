@@ -65,8 +65,8 @@ SRC_FILES += \
 
 INC_FOLDER +=\
 
-
-.PHONY: default help
+ 
+.PHONY: default help flash
 
 
 default: $(TARGET)
@@ -84,7 +84,7 @@ sdk_config:
 	java -jar $(CMSIS_CONFIG_TOOL) $(SDK_CONFIG_FILE)
 
 
-flash: default
+flash:
 	Jlink.exe -if swd -device nRF52840_xxAA -speed 4000 -CommanderScript CommanderScript/build_windows.jlink
 
 erase:
