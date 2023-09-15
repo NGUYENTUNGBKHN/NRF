@@ -17,7 +17,29 @@ SECTIONS
     {
         KEEP(*(.isr_vector))
         *(.text)
+        *(.text.*)
+        *(.rodata)
+        _sromdev = .;
+        _eromdev = .;
+        _sidata = .;
     } > FLASH
+
+    .data : AT(_sidata)
+    {
+        _sdata = .;
+        *(.data)
+        *(.data*)
+        _edata = .;
+    } > RAM
+
+    .bss : 
+    {
+        _sbss = .;
+        *(.bss)
+        _ebss = .;
+    } > RAM
+
+    _estack = ORIGIN(RAM) + LENGTH(RAM);
 }
 
 
