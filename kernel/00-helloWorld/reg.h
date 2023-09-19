@@ -28,26 +28,37 @@ typedef struct UartType_s
     uint32_t TASKS_STARTTX;     /* Start UART transmitter */
     uint32_t TASKS_STOPTX;      /* Stop UART transmitter */
     uint32_t RESERVED[3];       /*  */
-    uint32_t TASKS_SUSPEND;
-    uint32_t EVENTS_CTS;
-    uint32_t EVENTS_NCTS;
-    uint32_t EVENTS_RXDRDY;
-    uint32_t EVENTS_TXDRDY;
-    uint32_t EVENTS_ERROR;
-    uint32_t EVENTS_RXTO;
-    uint32_t SHORTS;
-    uint32_t INTENSET;
-    uint32_t INTENCLR;
-    uint32_t ERRORSRC;
-    uint32_t ENABLE;
-    uint32_t PSEL_RTS;
-    uint32_t PSEL_TXD;
-    uint32_t PSEL_CTS;
-    uint32_t PSEL_RXD;
-    uint32_t RXD;
-    uint32_t TXD;
-    uint32_t BAUDRATE;              /* Baud Rate. ACCuracy depends on the HFCLK source selected */
-    uint32_t CONFIG;               /* configuration of parity and hardware flow control */
+    uint32_t TASKS_SUSPEND;     /* Suspend UART */
+    uint32_t RESERVED1[56];
+    uint32_t EVENTS_CTS;        /* CTS is activated (set low). Clear to Send. */
+    uint32_t EVENTS_NCTS;       /* CTS is deactivated (set high). Not Clear to Send. */
+    uint32_t EVENTS_RXDRDY;     /* Data received in RXD */
+    uint32_t RESERVED2[4];
+    uint32_t EVENTS_TXDRDY;     /* Data sent from TXD */
+    uint32_t RESERVED3;
+    uint32_t EVENTS_ERROR;      /* Error detected */
+    uint32_t RESERVED4[7];
+    uint32_t EVENTS_RXTO;       /* Receiver timeout */
+    uint32_t RESERVED5[46];
+    uint32_t SHORTS;            /* Shortcuts between local events and tasks */
+    uint32_t RESERVED6[64];
+    uint32_t INTENSET;          /* Enable interrupt */
+    uint32_t INTENCLR;          /* Disable interrupt */
+    uint32_t RESERVED7[93];
+    uint32_t ERRORSRC;          /* Error Source */
+    uint32_t RESERVED8[31];
+    uint32_t ENABLE;            /* Enable UART */
+    uint32_t RESERVED9;
+    uint32_t PSEL_RTS;          /* Pin select for RTS */
+    uint32_t PSEL_TXD;          /* Pin select for TXD */
+    uint32_t PSEL_CTS;          /* Pin select for CTS */
+    uint32_t PSEL_RXD;          /* Pin select for RXD */
+    uint32_t RXD;               /* RXD register */
+    uint32_t TXD;               /* TXD register */
+    uint32_t RESERVED10;
+    uint32_t BAUDRATE;          /* Baud Rate. ACCuracy depends on the HFCLK source selected */
+    uint32_t RESERVED11[17];
+    uint32_t CONFIG;            /* configuration of parity and hardware flow control */
 }UartType_t, *UartType_p;
 
 
@@ -68,30 +79,30 @@ typedef struct UartType_s
 
 #define UART_INTENSET_CTS_EN        (1 << UART_INTENSET_CTS_POS)
 #define UART_INTENSET_CTS_DIS       (0 << UART_INTENSET_CTS_POS)
-#define UART_INTENSET_NCTS_EN        (1 << UART_INTENSET_NCTS_POS)
-#define UART_INTENSET_NCTS_DIS       (0 << UART_INTENSET_NCTS_POS)
-#define UART_INTENSET_RXDRDY_EN        (1 << UART_INTENSET_RXDRDY_POS)
-#define UART_INTENSET_RXDRDY_DIS       (0 << UART_INTENSET_RXDRDY_POS)
-#define UART_INTENSET_TXDRDY_EN        (1 << UART_INTENSET_TXDRDY_POS)
-#define UART_INTENSET_TXDRDY_DIS       (0 << UART_INTENSET_TXDRDY_POS)
-#define UART_INTENSET_ERROR_EN        (1 << UART_INTENSET_ERROR_POS)
-#define UART_INTENSET_ERROR_DIS       (0 << UART_INTENSET_ERROR_POS)
-#define UART_INTENSET_RXTO_EN        (1 << UART_INTENSET_RXTO_POS)
-#define UART_INTENSET_RXTO_DIS       (0 << UART_INTENSET_RXTO_POS)
+#define UART_INTENSET_NCTS_EN       (1 << UART_INTENSET_NCTS_POS)
+#define UART_INTENSET_NCTS_DIS      (0 << UART_INTENSET_NCTS_POS)
+#define UART_INTENSET_RXDRDY_EN     (1 << UART_INTENSET_RXDRDY_POS)
+#define UART_INTENSET_RXDRDY_DIS    (0 << UART_INTENSET_RXDRDY_POS)
+#define UART_INTENSET_TXDRDY_EN     (1 << UART_INTENSET_TXDRDY_POS)
+#define UART_INTENSET_TXDRDY_DIS    (0 << UART_INTENSET_TXDRDY_POS)
+#define UART_INTENSET_ERROR_EN      (1 << UART_INTENSET_ERROR_POS)
+#define UART_INTENSET_ERROR_DIS     (0 << UART_INTENSET_ERROR_POS)
+#define UART_INTENSET_RXTO_EN       (1 << UART_INTENSET_RXTO_POS)
+#define UART_INTENSET_RXTO_DIS      (0 << UART_INTENSET_RXTO_POS)
 
 /* TXD Register */
 #define UART_TXD_PIN_POS            0
 #define UART_TXD_PORT_POS           5
 #define UART_TXD_CONNECT_POS        31
-#define UART_TXD_CONNECT            (1 << UART_TXD_CONNECT_POS)
-#define UART_TXD_DISCONNECT         (0 << UART_TXD_CONNECT_POS)
+#define UART_TXD_CONNECT            (0 << UART_TXD_CONNECT_POS)
+#define UART_TXD_DISCONNECT         (1 << UART_TXD_CONNECT_POS)
 
 /*RXD Register  */
 #define UART_RXD_PIN_POS            0
 #define UART_RXD_PORT_POS           5
 #define UART_RXD_CONNECT_POS        31
-#define UART_RXD_CONNECT            (1 << UART_RXD_CONNECT_POS)
-#define UART_RXD_DISCONNECT         (0 << UART_RXD_CONNECT_POS)
+#define UART_RXD_CONNECT            (0 << UART_RXD_CONNECT_POS)
+#define UART_RXD_DISCONNECT         (1 << UART_RXD_CONNECT_POS)
 
 /* ENABLE REGITER */
 #define UART_ENABLE_REGISTER_EN     0x04
@@ -126,6 +137,7 @@ typedef struct UartType_s
 #define UART_CONFIG_PARITY_INC      (0x07 << UART_CONFIG_PARITY_POS)
 #define UART_CONFIG_STOP_ONE        (0 << UART_CONFIG_STOP_POS)
 #define UART_CONFIG_STOP_TWO        (1 << UART_CONFIG_STOP_POS)
+
 
 
 #define uart0 ((UartType_t*) UART_BASE_ADDRESS)     

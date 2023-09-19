@@ -12,7 +12,7 @@ SZ='$(TOOLCHAIN_TUNG)/$(FREFIX)-size'
 HEX=$(CP) -O ihex
 BIN=$(CP) -O binary -S
 
-LINKER_SCRIPT=hello.ld
+LINKER_SCRIPT=hello2.ld
 
 CPU=-mcpu=cortex-m4
 FPU=-mfpu=fpv4-sp-d16
@@ -36,10 +36,9 @@ LDFLAGS+= -Wl,--gc-sections,-Map=$(OUTPUT_PROJ_DIR)/$(TARGET).map
 LIB_FILES +=-lc -lm -lnosys 
 
 SRC_FILES=main.c\
-	startup.c\
 
 
-ASM_FILES=\
+ASM_FILES=gcc_startup_nrf52840.S\
 
 INC_FOLDER=\
 
