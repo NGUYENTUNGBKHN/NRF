@@ -1,4 +1,4 @@
-TARGET=helloWorld
+TARGET=semi
 OUTPUT_PROJ_DIR=_build
 OUTPUT_OBJS_DIR=$(OUTPUT_PROJ_DIR)/objs
 
@@ -12,7 +12,7 @@ SZ='$(TOOLCHAIN_TUNG)/$(FREFIX)-size'
 HEX=$(CP) -O ihex
 BIN=$(CP) -O binary -S
 
-LINKER_SCRIPT=hello.ld
+LINKER_SCRIPT=semi.ld
 
 CPU=-mcpu=cortex-m4
 FPU=-mfpu=fpv4-sp-d16

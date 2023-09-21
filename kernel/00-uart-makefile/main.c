@@ -7,11 +7,6 @@
 #define PORT0 0
 static int count = 0;
 
-void SystemInit()
-{
-
-}
-
 int Puts(const char *str)
 {
     while(*str)
@@ -44,6 +39,7 @@ void uartInit()
 
     /* Interrupt */
     uart0->INTENSET = UART_INTENSET_TXDRDY_EN;
+	//uart0->INTENCLR = 0;
     uart0->TASKS_STARTTX = 0x01;
 }
 

@@ -26,7 +26,9 @@
       "drv_gpio.h": "c",
       "sdk_common.h": "c",
       "nrf.h": "c",
-      "reg.h": "c"
+      "reg.h": "c",
+      "nrf_erratas.h": "c",
+      "nrf52_erratas.h": "c"
     },
     
     "C_Cpp.errorSquiggles": "disabled",
