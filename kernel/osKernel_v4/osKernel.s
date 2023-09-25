@@ -9,9 +9,11 @@ SysTick_Handler
     PUSH    {R4-R11}        ; Save 
     LDR     R0, =tcb_curr   ; R0 = tcb_curr
     LDR     R1, [R0]        ; R1 = *tcb_curr
-    STR     SP, [R1]        ; 
-
-
+    STR     SP, [R1]        ; stackPt = SP
+    ADD     R1, R1, #4
+    STR     R1, [R0]
+    LDR     SP, [R1]
+    POP     {R4-R11}
     CPSIE   I               ; enable interrupt
     BX      LR
 
