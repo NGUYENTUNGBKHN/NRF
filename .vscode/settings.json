@@ -28,7 +28,8 @@
       "nrf.h": "c",
       "reg.h": "c",
       "nrf_erratas.h": "c",
-      "nrf52_erratas.h": "c"
+      "nrf52_erratas.h": "c",
+      "core_cm4.h": "c"
     },
     
     "C_Cpp.errorSquiggles": "disabled",
