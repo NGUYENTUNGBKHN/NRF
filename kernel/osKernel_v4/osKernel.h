@@ -17,7 +17,8 @@ extern "C"
 {
 #endif
 
-#include "core_cm4.h"
+#include "nrf.h"                        // Device header
+
 
 /* CODE */
 typedef struct tcb_s
@@ -35,6 +36,7 @@ void osKernelAddThread( void(*task0)(void*),
 
 void osKernelLaunch(int quatan);
 
+void osThreadYield(void);
 
 
 #ifdef __cplusplus

@@ -12,6 +12,9 @@
 
 #include "osKernel.h"
 
+#define CTRL_INITERRUPT                (*((volatile uint32_t*) 0xE000ED04))
+#define SYSTICK_SET_POS         26
+
 #define SYSTICK_CTRL_ENB        0
 #define SYSTICK_CTRL_TICKINT    1
 #define SYSTICK_CTRL_CLKSOURCE  2
@@ -41,7 +44,7 @@ uint32_t MILLIS_PRESCALER;
 
 void osSchedulerLaunch();
 
-void osKernelStackInit(int index, void (*func)(void))
+void osKernelStackInit(int index, void (*func)(void*))
 {
     main_tcb[index].stackPt = &TCB_STACK[index][STACK_SIZES - 16];  // 
     TCB_STACK[index][STACK_SIZES - 1] = 0x01000000;                 // xPSR register
@@ -54,9 +57,9 @@ void osKernelInit(void)
     MILLIS_PRESCALER = (BUS_FREQ/1000);
 }
 
-void osKernelAddThread( void(*task0)(*void),
-                        void(*task1)(*void),
-                        void(*task2)(*void))
+void osKernelAddThread( void(*task0)(void*),
+                        void(*task1)(void*),
+                        void(*task2)(void*))
 {
     __disable_irq();
     
@@ -79,7 +82,7 @@ void osKernelAddThread( void(*task0)(*void),
 void osKernelLaunch(int quatan)
 {
     /* setup systick */
-    SysTick_Type *pSysTick = SysTick_BASE;
+    SysTick_Type *pSysTick = (SysTick_Type*)SysTick_BASE;
     // pSysTick->CALIB = 
     pSysTick->CTRL = SYSTICK_CTRL_COUNTER_EN | 
                     SYSTICK_CTRL_TICKINIT_EN |
@@ -89,7 +92,11 @@ void osKernelLaunch(int quatan)
     osSchedulerLaunch();
 }
 
-
+void osThreadYield(void)
+{
+    // systick trigger
+    CTRL_INITERRUPT = 1 << SYSTICK_SET_POS; 
+}
 
 
 

@@ -15,27 +15,30 @@
 
 static int count0, count1, count2;
 
-void Thread_task0()
+void Thread_task0(void *param)
 {
     while(1)
     {
         count0++;
+        osThreadYield();
     }
 }
 
-void Thread_task1()
+void Thread_task1(void *param)
 {
     while(1)
     {
         count1++;
+        osThreadYield();
     }
 }
 
-void Thread_task2()
+void Thread_task2(void *param)
 {   
     while(1)
     {
         count2++;
+        osThreadYield();
     }
 }
 
