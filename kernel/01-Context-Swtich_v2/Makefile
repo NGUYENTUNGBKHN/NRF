@@ -1,8 +1,8 @@
-TARGET=contextS
+TARGET=context_sw
 OUTPUT_PROJ_DIR=_build
 OUTPUT_OBJS_DIR=$(OUTPUT_PROJ_DIR)/objs
 
-LINKER_SCRIPT=contextS.ld
+LINKER_SCRIPT=context.ld
 
 # toolchain
 FREFIX=arm-none-eabi
@@ -53,6 +53,7 @@ OBJECTS+=$(patsubst %.S, $(OUTPUT_OBJS_DIR)/%.S.o, $(ASM_FILES))
 default: all
 
 all: $(OUTPUT_PROJ_DIR)/$(TARGET).out $(OUTPUT_PROJ_DIR)/$(TARGET).hex $(OUTPUT_PROJ_DIR)/$(TARGET).bin 
+	@echo "Build Done."
 
 
 $(OUTPUT_OBJS_DIR)/%.o: %.c
@@ -69,7 +70,6 @@ $(OUTPUT_PROJ_DIR)/$(TARGET).out: $(OBJECTS)
 	@echo "Linking Target $@"
 	@$(CC) $(LDFLAGS) $(OBJECTS) -o $@
 	@$(SZ) $@
-
 
 $(OUTPUT_PROJ_DIR)/$(TARGET).hex: $(OUTPUT_PROJ_DIR)/$(TARGET).out
 	@echo "HEX $@"
@@ -91,5 +91,4 @@ softdevice:
 
 clean:
 	rm -r $(OUTPUT_PROJ_DIR)
-
 
