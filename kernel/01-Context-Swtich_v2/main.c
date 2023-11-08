@@ -11,6 +11,7 @@
 ******************************************************************************/
 #include <stdint.h>
 #include "reg.h"
+#include "asm.h"
 
 #define RX_PIN_NUMBER 8
 #define TX_PIN_NUMBER 6
@@ -52,12 +53,25 @@ void logInit()
     uart0->TASKS_STARTTX = 0x01;
 }
 
+void task1(void)
+{
+    logPrintf("task1 \n");
+    while (1)
+    {
+        /* code */
+    }
+    
+}
+
 
 int main()
 {
+    unsigned int userTask_stack[256];
+    unsigned int *usertask_stack_start = userTask_stack + 256 - 16;
+    usertask_stack_start[8] = (unsigned int) &task1;
     logInit();
     logPrintf("Context Swtich\n");
-    
+    activates(usertask_stack_start);
 
     while(1);
 }

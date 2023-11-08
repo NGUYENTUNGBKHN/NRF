@@ -101,5 +101,6 @@
           }
         },
         "git.confirmSync": false,
-        "editor.codeActionsOnSave": {}
+        "editor.codeActionsOnSave": {},
+        "cmake.sourceDirectory": "E:/Project/Embedded/NRF/NRF/external/mbedtls"
 }

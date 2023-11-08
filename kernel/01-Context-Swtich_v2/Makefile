@@ -8,7 +8,7 @@ LINKER_SCRIPT=context.ld
 FREFIX=arm-none-eabi
 CC='$(TOOLCHAIN_TUNG)/$(FREFIX)-gcc'
 CX='$(TOOLCHAIN_TUNG)/$(FREFIX)-gcc'
-AS='$(TOOLCHAIN_TUNG)/$(FREFIX)-gcc -x assembler-with-cpp'
+AS='$(TOOLCHAIN_TUNG)/$(FREFIX)-gcc'  -x assembler-with-cpp
 SZ='$(TOOLCHAIN_TUNG)/$(FREFIX)-size'
 CP='$(TOOLCHAIN_TUNG)/$(FREFIX)-objcopy'
 
@@ -39,7 +39,7 @@ LIBS=-lc -lm -lnosys
 SRC_FILES=main.c\
 	startup.c\
 
-ASM_FILES=
+ASM_FILES=context_switch.S\
 
 INC_FOLDER=
 

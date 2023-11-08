@@ -28,11 +28,23 @@ void Reset_Handler()
     main();
 }
 
+void NHI_Handler()
+{
+    while(1);
+}
+
+void Hardfault_Handler()
+{
+    while(1);
+}
+
 
 __attribute((section(".isr_vector")))
 uint32_t *isr_vector[] = {
     (uint32_t*) &_estack,
     (uint32_t*) Reset_Handler,
+    (uint32_t*) NHI_Handler,
+    (uint32_t*) Hardfault_Handler,
 };
 
 
