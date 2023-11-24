@@ -29,7 +29,11 @@
       "reg.h": "c",
       "nrf_erratas.h": "c",
       "nrf52_erratas.h": "c",
-      "core_cm4.h": "c"
+      "core_cm4.h": "c",
+      "nrf_drv_uart.h": "c",
+      "segger_rtt.h": "c",
+      "oskernel.h": "c",
+      "nrf52840.h": "c"
     },
     
     "C_Cpp.errorSquiggles": "disabled",

@@ -2,6 +2,9 @@ TARGETS=systick_os
 OUTPUT_PROJ_DIR=_build
 OUTPUT_OBJS_DIR=$(OUTPUT_PROJ_DIR)/objs
 
+USER_DIR=user
+OS_DIR=osKernel
+NRF_LIB=../../
 
 DEBUG=0
 
@@ -26,7 +29,7 @@ BIN=$(CP) -O binary -S
 LINKER_SCRIPT=systick_os.ld
 
 # C option
-CPU=-mcpu=cortex-m4
+CPU=-mcpu=cortex-m4 -mthumb -mabi=aapcs
 FPU=-mfpu=fpv4-sp-d16
 FLOAT_ABI=-mfloat-abi=hard
 OPT=-O3 -g3
@@ -34,7 +37,7 @@ MCU=$(CPU) $(FPU) $(FLOAT_ABI) $(OPT)
 
 CCFLAGS+=$(MCU)
 CCFLAGS+=-Wall -Werror -ffunction-sections -fdata-sections -fno-strict-aliasing
-CCFLAGS+=-fno-builtin -fshort-enums
+CCFLAGS+=-fno-builtin -fshort-enums 
 CCFLAGS+=-MMD -MP -MF"$(@:%.o=%.d)"
 
 # ASM option
@@ -49,12 +52,16 @@ LDFLAGS+=-Wl,--gc-sections,-Map=$(OUTPUT_PROJ_DIR)/$(TARGETS).map
 # Library
 LIBS=-lc -lm -lnosys
 
-SRC_FILES=main.c\
+SRC_FILES=$(USER_DIR)/main.c\
+	$(OS_DIR)/osKernel.c\
 	startup.c\
 
-ASM_FILES=
+ASM_FILES=$(OS_DIR)/osKernel.s\
 
-INC_FOLDERS=
+INC_FOLDERS=-I$(USER_DIR)\
+	-I$(OS_DIR)\
+	-I$(NRF_LIB)/components/toolchain/cmsis/include\
+	-I$(NRF_LIB)/modules/nrfx/mdk\
 
 
 OBJECTS=$(patsubst %.c, $(OUTPUT_OBJS_DIR)/%.o, $(SRC_FILES))
@@ -81,7 +88,7 @@ $(OUTPUT_OBJS_DIR)/%.s.o: %.s
 
 $(OUTPUT_PROJ_DIR)/$(TARGETS).out: $(OBJECTS)
 	$(ECHO)echo "Linking target $@"
-	$(ECHO)$(CC) $(LDFLAGS) $(OBJECTS) -o $@
+	$(ECHO)$(CC) $(LDFLAGS) $(LIBS) $(OBJECTS) -o $@
 	$(ECHO)$(SZ) $@
 
 $(OUTPUT_PROJ_DIR)/$(TARGETS).hex: $(OUTPUT_PROJ_DIR)/$(TARGETS).out

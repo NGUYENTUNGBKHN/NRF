@@ -28,7 +28,13 @@ Project File Date:  09/27/2023
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\Soft\Keilc5\ARM\ARMCC\Bin'
 Build target 'NRF52840'
 Note: source file '.\osKernel.s' - object file renamed from '.\Objects\osKernel.o' to '.\Objects\oskernel_1.o'.
-".\Objects\osKernelv4.axf" - 0 Error(s), 0 Warning(s).
+compiling osKernel.c...
+osKernel.c(45): warning:  #1295-D: Deprecated declaration osSchedulerLaunch - give arg types
+  void osSchedulerLaunch();
+osKernel.c: 1 warning, 0 errors
+linking...
+Program Size: Code=1708 RO-data=544 RW-data=24 ZI-data=34088  
+".\Objects\osKernelv4.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -54,11 +60,11 @@ Package Vendor: NordicSemiconductor
    * Component: ARM::CMSIS:CORE:5.4.0
 
    * Component: NordicSemiconductor::Device:Startup:8.44.1
-      Include file:  Device\Include\system_nrf.h
       Source file:   Device\Source\system_nrf52.c
-      Source file:   Device\Source\arm\arm_startup_nrf52840.s
       Include file:  Device\Include\system_nrf52840.h
-Build Time Elapsed:  00:00:01
+      Include file:  Device\Include\system_nrf.h
+      Source file:   Device\Source\arm\arm_startup_nrf52840.s
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>
