@@ -2,7 +2,7 @@
 /*! @addtogroup Group2
     @file       main.c
     @brief      
-    @date       2023/10/26
+    @date       2023/11/13
     @author     Development Dept at Tokyo
     @par        Revision
     $Id$
@@ -23,6 +23,7 @@ int logPrintf(const char *str)
 {
     while(*str)
     {
+        
         uart0->TXD = *str++;
 		while(uart0->EVENTS_TXDRDY != 0x01)
         {
@@ -54,24 +55,36 @@ void logInit()
 
 void task1(void)
 {
-    logPrintf("task1 \n");
+    logPrintf("usertask : 1st call of userstask! \n");
+    logPrintf("usertask : Now, return to kernel mode \n");
+    syscall();
+    logPrintf("usertask : 2nd call of userstask! \n");
+    logPrintf("usertask : Now, return to kernel mode \n");
+    syscall();
     while (1)
     {
-        /* code */
     }
-    
 }
-
 
 int main()
 {
-    unsigned int userTask_stack[256];
-    unsigned int *usertask_stack_start = userTask_stack + 256 - 16;
+    unsigned int usertask_stack[256];
+    unsigned int *usertask_stack_start = usertask_stack + 256 - 16;
     usertask_stack_start[8] = (unsigned int) &task1;
-    logInit();
-    logPrintf("Context Swtich\n");
-    activates(usertask_stack_start);
 
-    while(1);
+    logInit();
+    logPrintf("OS : Context Switch\n");
+    logPrintf("OS : Calling the usertask (1st time)\n");
+    usertask_stack_start = activates(usertask_stack_start);
+    logPrintf("OS : Return to the OS mode\n");
+    logPrintf("OS : Calling the usertask (2nd time)\n");
+    usertask_stack_start = activates(usertask_stack_start);
+    logPrintf("OS : Return the OS mode \n");
+    logPrintf("OS : Going to infinite loop ... \n");
+    
+    while (1)
+    {
+    }
 }
+
 

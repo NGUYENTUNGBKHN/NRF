@@ -1,17 +1,6 @@
-/******************************************************************************/
-/*! @addtogroup Group2
-    @file       main.c
-    @brief      
-    @date       2023/10/26
-    @author     Development Dept at Tokyo
-    @par        Revision
-    $Id$
-    @par        Copyright (C)
-    Japan CashMachine Co, Limited. All rights reserved.
-******************************************************************************/
 #include <stdint.h>
 #include "reg.h"
-#include "asm.h"
+// #include "asm.h"
 
 #define RX_PIN_NUMBER 8
 #define TX_PIN_NUMBER 6
@@ -19,10 +8,14 @@
 #define RTS_PIN_NUMBER 5
 #define PORT0 0
 
+extern void syscall(void);
+extern void activates(unsigned int *p);
+
 int logPrintf(const char *str)
 {
     while(*str)
     {
+        
         uart0->TXD = *str++;
 		while(uart0->EVENTS_TXDRDY != 0x01)
         {
@@ -52,26 +45,28 @@ void logInit()
     uart0->TASKS_STARTTX = 0x01;
 }
 
+
 void task1(void)
 {
-    logPrintf("task1 \n");
+    logPrintf("USER : Enter task1 \n");
+    syscall();
     while (1)
     {
         /* code */
     }
-    
 }
-
 
 int main()
 {
-    unsigned int userTask_stack[256];
-    unsigned int *usertask_stack_start = userTask_stack + 256 - 16;
-    usertask_stack_start[8] = (unsigned int) &task1;
+    unsigned int user_stack[256];
+    unsigned int *p_user_stack = user_stack + 256 - 16;
+    p_user_stack[8] = (unsigned int) &task1;
     logInit();
-    logPrintf("Context Swtich\n");
-    activates(usertask_stack_start);
-
-    while(1);
+    logPrintf("OS : Context Switch\n");
+    activates(p_user_stack);
+    logPrintf("OS : Return OS\n");
+    while (1)
+    {
+    }
 }
 

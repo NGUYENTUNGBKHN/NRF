@@ -2,7 +2,7 @@ TARGET=context_sw
 OUTPUT_PROJ_DIR=_build
 OUTPUT_OBJS_DIR=$(OUTPUT_PROJ_DIR)/objs
 
-LINKER_SCRIPT=context.ld
+LINKER_SCRIPT=context2.ld
 
 # toolchain
 FREFIX=arm-none-eabi
@@ -19,7 +19,7 @@ CPU=-mcpu=cortex-m4
 FPU=-mfpu=fpv4-sp-d16
 FLOAT_ABI=-mfloat-abi=hard
 MCU=$(CPU) $(FPU) $(FLOAT_ABI)
-OPT=-O3 -g3
+OPT=-Og -g
 
 CCFLAGS=$(MCU) $(OPT)
 CCFLAGS+= -Wall -Werror -ffunction-sections -fdata-sections -fno-strict-aliasing
@@ -27,7 +27,7 @@ CCFLAGS+= -fno-builtin -fshort-enums -D__STARTUP_CONFIG
 CCFLAGS+= -MMD -MP -MF"$(@:%.o=%.d)"
 
 ASMFLAGS= $(MCU)
-ASMFLAGS+= -g3
+ASMFLAGS+= -Og -g
 
 
 LDFLAGS= $(MCU)
@@ -37,9 +37,10 @@ LDFLAGS+= -Wl,--gc-sections,-Map=$(OUTPUT_PROJ_DIR)/$(TARGET).map
 LIBS=-lc -lm -lnosys 
 
 SRC_FILES=main.c\
-	startup.c\
+		# startup.c\
 
 ASM_FILES=context_switch.S\
+		startup.S\
 
 INC_FOLDER=
 
