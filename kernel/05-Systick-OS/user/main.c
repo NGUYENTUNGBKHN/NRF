@@ -50,6 +50,7 @@ void Thread_task0(void *param)
     {
         count0++;
         //logPrintf("User1 : processing .. \n");
+        osThreadYield();
     }
 }
 
@@ -59,6 +60,7 @@ void Thread_task1(void *param)
     {
         count1++;
         //logPrintf("User2 : processing .. \n");
+        osThreadYield();
     }
 }
 
@@ -68,6 +70,7 @@ void Thread_task2(void *param)
     {
         count2++;
         //logPrintf("User3 : processing .. \n");
+        osThreadYield();
     }
 }
 

@@ -19,6 +19,14 @@ void Default_Handler(void)
     
 }
 
+void HardFault_Handler(void)
+{
+    while (1)
+    {
+        /* code */
+    }
+    
+}
 
 void default_handler(void)
 {
@@ -26,7 +34,7 @@ void default_handler(void)
 }
 
 void NMI_Handler(void) __attribute((weak, alias("default_handler")));
-void HardFault_Handler(void) __attribute((weak, alias("default_handler")));
+// void HardFault_Handler(void) __attribute((weak, alias("default_handler")));
 void MemoryManagement_Handler(void) __attribute((weak, alias("default_handler")));
 void BusFault_Handler(void) __attribute((weak, alias("default_handler")));
 void UsageFault_Handler(void) __attribute((weak, alias("default_handler")));

@@ -39,10 +39,10 @@ void osKernelAddThreads(void(*task0)(void*),
     osKernelStackInit(0, task0);
     /* TASK 1 */
     m_tcb[1].next = &m_tcb[2];
-    osKernelStackInit(0, task1);
+    osKernelStackInit(1, task1);
     /* TASK 2 */
     m_tcb[2].next = &m_tcb[0];
-    osKernelStackInit(0, task2);
+    osKernelStackInit(2, task2);
 
 
     tcb_curr = &m_tcb[0];
@@ -61,4 +61,10 @@ void osKernelLaunch(int quatan)
     pSysTick->VAL = 0;
     osSchedulerLaunch();       
 
+}
+
+void osThreadYield(void)
+{
+    // systick trigger
+    CTRL_INITERRUPT = 1 << SYSTICK_SET_POS; 
 }

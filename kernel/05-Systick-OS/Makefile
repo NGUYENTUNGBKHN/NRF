@@ -112,3 +112,6 @@ clean:
 	rm -r $(OUTPUT_PROJ_DIR)
 
 
+-include $(wildcard */*/*.d)
+-include $(wildcard */*/*/*.d)
+

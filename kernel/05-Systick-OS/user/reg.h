@@ -22,6 +22,7 @@ extern "C"
 #include "nrf52840.h"
 #include "cmsis_gcc.h"
 #include "core_cm4.h"
+
 /* for Variable */
 #define __I     volatile const  /* Only read */
 #define __O     volatile        /* Only write */
@@ -170,7 +171,10 @@ typedef struct UartType_s
 #define SYSTICK_CTRL_CLKSRC_PROCESSOR   (1 << SYSTICK_CTRL_CLKSOURCE)
 #define SYSTICK_CTRL_CLKSRC_EXTERNAL    (0 << SYSTICK_CTRL_CLKSOURCE)
 /*---------------- SYSTICK -----------------*/
-
+/* CONTROL REGISTER */
+#define CTRL_INITERRUPT                (*((volatile uint32_t*) 0xE000ED04))
+#define SYSTICK_SET_POS         26
+/* */
 
 #ifdef __cplusplus
 }

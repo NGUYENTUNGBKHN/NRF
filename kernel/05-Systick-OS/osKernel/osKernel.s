@@ -1,6 +1,7 @@
 .syntax unified
 .arch armv7e-m
 .thumb
+.global tcb_curr
 
 .text
 .align 2
@@ -19,7 +20,7 @@ Systick_Handler:
     CPSIE   i                                   @ enable interrupt
     bx lr
 
-.global tcb_curr
+
 .global osSchedulerLaunch
 osSchedulerLaunch:
     ldr r0, =tcb_curr                           @ r0 = tcb_curr  Load address tcb_curr into r0

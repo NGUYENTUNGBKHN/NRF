@@ -20,11 +20,16 @@ extern "C"
 #include "reg.h"
 
 
+
 typedef struct TCB_S
 {
     int32_t *stackPt;
     struct TCB_S *next;
 }tcb_t, *tcb_p;
+
+extern tcb_t *tcb_curr;
+
+extern void osSchedulerLaunch();
 
 void osKernelInit(void);
 
@@ -33,6 +38,8 @@ void osKernelAddThreads(void(*task0)(void*),
                         void(*task2)(void*));
 
 void osKernelLaunch(int quatan);
+
+void osThreadYield(void);
 
 #ifdef __cplusplus
 }
