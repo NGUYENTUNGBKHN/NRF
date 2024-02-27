@@ -15,18 +15,24 @@ SECTIONS
         KEEP(*(.isr_vector))
         *(.text)
         *(.text.*)
+        *(.rodata)
+        _sidata = .;
     } > FLASH
 
-    .data : 
+    .data : AT(_sidata)
     {
+        _sdata = .;
         *(.data)
         *(.data.*)
+        _edata = .;
     } > RAM
 
     .bss : 
     {
+        _sbss = .;
         *(.bss)
         *(.bss.*)
+        _ebss = .;
     } > RAM
 
     _estack = ORIGIN(RAM) + LENGTH(RAM);

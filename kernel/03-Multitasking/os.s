@@ -32,7 +32,7 @@ activates:
     mov r0, #0xfffffff0
     cmp lr, r0
 
-    ittt ls     /* ls is low same */
+    ittt ls     /* ls is low same ittt if then then then */
     movls   r0, #3
     msrls   control, r0
     isbls

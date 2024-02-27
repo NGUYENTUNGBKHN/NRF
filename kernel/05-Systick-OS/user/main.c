@@ -1,11 +1,6 @@
 #include <stdint.h>
 #include "osKernel.h"
-
-#define RX_PIN_NUMBER 8
-#define TX_PIN_NUMBER 6
-#define CTS_PIN_NUMBER 7
-#define RTS_PIN_NUMBER 5
-#define PORT0 0
+#include "nrf52_eval_kit.h"
 
 static int count0, count1, count2;
 
@@ -86,4 +81,6 @@ int main()
     
     while(1);
 }
+
+
 

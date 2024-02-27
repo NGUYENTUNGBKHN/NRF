@@ -60,6 +60,8 @@ ASM_FILES=$(OS_DIR)/osKernel.s\
 
 INC_FOLDERS=-I$(USER_DIR)\
 	-I$(OS_DIR)\
+	-I$(OS_DIR)/../user\
+	-I$(OS_DIR)/../bsp\
 	-I$(NRF_LIB)/components/toolchain/cmsis/include\
 	-I$(NRF_LIB)/modules/nrfx/mdk\
 

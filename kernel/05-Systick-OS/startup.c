@@ -5,8 +5,33 @@
 extern uint32_t _estack;
 extern void main();
 
+extern uint32_t _sdata;
+extern uint32_t _edata;
+extern uint32_t _sbss;
+extern uint32_t _ebss;
+extern uint32_t _sidata;
+
 void Reset_Handler(void)
 {
+    uint32_t *p_sdata = &_sdata;
+    uint32_t *p_edata = &_edata;
+    uint32_t *p_sbss = &_sbss;
+    uint32_t *p_ebss = &_ebss;
+    uint32_t *p_sidata = &_sidata;
+
+    while (p_sdata < p_edata)
+    {
+        /* code */
+        *p_sdata++ = *p_sidata++;
+    }
+
+    while (p_sbss < p_ebss)
+    {
+        /* code */
+        *p_sbss++ = 0;
+    }
+    
+
     main();
 }
 
