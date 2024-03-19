@@ -1,42 +1,45 @@
 /******************************************************************************/
 /*! @addtogroup Group2
-    @file       startup.c
+    @file       main.c
     @brief      
-    @date       2024/03/12
+    @date       2024/03/18
     @author     Development Dept at Tokyo
     @par        Revision
     $Id$
     @par        Copyright (C)
     Japan CashMachine Co, Limited. All rights reserved.
 ******************************************************************************/
+
+
 #include "stdint.h"
+#include "log.h"
+#include "context_sw.h"
 
-extern uint32_t _estack;
-extern int main();
-
-void Reset_Handler(void)
+void task_test()
 {
-
-    main();
+    logPrintf("task test \n");
+    while (1)
+    {
+        /* code */
+    }
+    
 }
 
-void NMI_Handler()
+int main()
 {
-    while(1);
+    logInit();
+
+    logPrintf("osKernel ver 5 \n");
+
+    activate((uint32_t*)&task_test);
+
+    while(1)
+    {
+
+    }
+
+    return 0;
 }
-
-void Hardfault_Handler()
-{
-    while(1);
-}
-
-
-__attribute((section(".isr_vector")))
-uint32_t *p_isr_vector[] = {
-    (uint32_t*)(&_estack),
-    (uint32_t*) Reset_Handler,
-};
-
 
 
 

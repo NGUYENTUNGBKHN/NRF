@@ -1,16 +1,16 @@
 
-
 ENTRY(Reset_Handler)
 
 MEMORY
 {
-    FLASH (rx) : ORIGIN = 0x0, LENGTH = 0x100000
-    RAM (rwx) : ORIGIN = 0x20000000, LENGTH = 0x40000
+    FLASH (rwx):  ORIGIN = 0x0, LENGTH = 0x100000
+    RAM (rx):    ORIGIN = 0x20000000, LENGTH = 0x40000
 }
+
 
 SECTIONS
 {
-    .text :
+    .text : 
     {
         KEEP(*(.isr_vector))
         *(.text)
@@ -25,7 +25,7 @@ SECTIONS
         *(.data.*)
     } > RAM
 
-    .bss :
+    .bss : 
     {
         *(.bss)
         *(.bss.*)
@@ -33,4 +33,5 @@ SECTIONS
 
     _estack = ORIGIN(RAM) + LENGTH(RAM);
 }
+
 

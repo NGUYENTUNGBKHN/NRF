@@ -1,4 +1,16 @@
-#include "stdint.h"
+/******************************************************************************/
+/*! @addtogroup Group2
+    @file       log.c
+    @brief      
+    @date       2024/03/19
+    @author     Development Dept at Tokyo
+    @par        Revision
+    $Id$
+    @par        Copyright (C)
+    Japan CashMachine Co, Limited. All rights reserved.
+******************************************************************************/
+
+#include "log.h"
 #include "reg.h"
 
 #define RX_PIN_NUMBER 8
@@ -42,18 +54,9 @@ void logInit()
 }
 
 
-int main()
-{
-    logInit();
 
-    logPrintf("Context Swtich\n");
-    
-    while (1)
-    {
-        /* code */
-    }
-    
-    return 0;
-}
+
+
+
 
 

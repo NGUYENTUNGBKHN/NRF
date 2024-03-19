@@ -1,43 +1,30 @@
 /******************************************************************************/
 /*! @addtogroup Group2
-    @file       startup.c
+    @file       log.h
     @brief      
-    @date       2024/03/12
+    @date       2024/03/19
     @author     Development Dept at Tokyo
     @par        Revision
     $Id$
     @par        Copyright (C)
     Japan CashMachine Co, Limited. All rights reserved.
 ******************************************************************************/
+
+#ifndef _LOG_H_
+#define _LOG_H_
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+/* CODE */
 #include "stdint.h"
 
-extern uint32_t _estack;
-extern int main();
+extern int logPrintf(const char *str);
+extern void logInit();
 
-void Reset_Handler(void)
-{
-
-    main();
+#ifdef __cplusplus
 }
-
-void NMI_Handler()
-{
-    while(1);
-}
-
-void Hardfault_Handler()
-{
-    while(1);
-}
-
-
-__attribute((section(".isr_vector")))
-uint32_t *p_isr_vector[] = {
-    (uint32_t*)(&_estack),
-    (uint32_t*) Reset_Handler,
-};
-
-
-
-
+#endif
+#endif
 
