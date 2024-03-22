@@ -1,37 +1,39 @@
-
 ENTRY(Reset_Handler)
 
 MEMORY
 {
-    FLASH (rwx):  ORIGIN = 0x0, LENGTH = 0x100000
-    RAM (rx):    ORIGIN = 0x20000000, LENGTH = 0x40000
+    FLASH (rx) : ORIGIN = 0x0, LENGTH = 0x100000
+    RAM (rwx) : ORIGIN = 0x20000000, LENGTH = 0x40000
 }
-
 
 SECTIONS
 {
-    .text : 
+    .text :
     {
         KEEP(*(.isr_vector))
         *(.text)
         *(.text.*)
         *(.rodata)
-        _sidata = .;
+		_sidata = .;
     } > FLASH
 
     .data : AT(_sidata)
     {
+        _sdata = .;
         *(.data)
-        *(.data.*)
+        *(.data*)
+        _edata = .;
     } > RAM
 
     .bss : 
     {
+        _sbss = .;
         *(.bss)
-        *(.bss.*)
+        _ebss = .;
     } > RAM
 
     _estack = ORIGIN(RAM) + LENGTH(RAM);
+
 }
 
 

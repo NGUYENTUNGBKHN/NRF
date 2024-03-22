@@ -41,10 +41,12 @@ LDFLAGS+= -Wl,--gc-sections,-Map=$(OUTPUT_PROJ_DIR)/$(TARGET_NAME).map
 
 SRC_FILES=main.c\
 	$(DRIVER_DIR)/log/log.c\
+	# $(CSW_DIR)/context_sw.c\
 	
 
 ASM_FILES=startup.s\
-	$(CSW_DIR)/context_switch.s\
+	$(CSW_DIR)/context_sw.s\
+	$(CSW_DIR)/syscall.s\
 
 
 

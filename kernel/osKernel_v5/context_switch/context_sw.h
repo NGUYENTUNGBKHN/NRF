@@ -20,8 +20,8 @@ extern "C"
 
 #include "stdint.h"
 /* CODE */
-extern void activate(uint32_t *stack);
-
+extern uint32_t *activate(uint32_t *stack);
+void syscall();
 
 
 #ifdef __cplusplus
