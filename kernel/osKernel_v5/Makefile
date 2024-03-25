@@ -5,6 +5,8 @@ OUTPUT_OBJS_DIR=$(OUTPUT_PROJ_DIR)/objs
 PROJ_DIR=./
 DRIVER_DIR=./driver
 CSW_DIR=./context_switch
+MUL_DIR=./multitasking
+OSK_DIR=./osKernel
 INC_COMMON=./include
 
 
@@ -39,20 +41,27 @@ LDFLAGS+=-T$(LINKER_SCRIPT)  --specs=nano.specs
 LDFLAGS+= -Wl,--gc-sections,-Map=$(OUTPUT_PROJ_DIR)/$(TARGET_NAME).map
 
 
-SRC_FILES=main.c\
+SRC_FILES=\
+	$(OSK_DIR)/main.c\
+	$(OSK_DIR)/osKernel.c\
 	$(DRIVER_DIR)/log/log.c\
+	# $(MUL_DIR)/main.c\
 	# $(CSW_DIR)/context_sw.c\
 	
 
 ASM_FILES=startup.s\
-	$(CSW_DIR)/context_sw.s\
-	$(CSW_DIR)/syscall.s\
+	$(OSK_DIR)/osKernel.s\
+	# $(MUL_DIR)/mul.s\
+	# $(MUL_DIR)/syscall.s\
+	# $(CSW_DIR)/context_sw.s\
 
 
 
 INC_FOLDER=-I$(INC_COMMON)\
 	-I$(DRIVER_DIR)/log\
 	-I$(CSW_DIR)\
+	-I$(MUL_DIR)\
+	-I$(OSK_DIR)\
 
 LIBS=-lc -lm -lnosys
 

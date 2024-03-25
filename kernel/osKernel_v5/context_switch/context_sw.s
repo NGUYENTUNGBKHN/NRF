@@ -1,6 +1,11 @@
 .thumb
 .syntax unified
 
+.macro save_kernel_state
+	mrs	ip, psr
+	push {r4, r5, r6, r7, r8, r9, r10, r11, ip, lr}
+.endm
+
 .type SVC_Handler, %function
 .global SVC_Handler
 SVC_Handler:
@@ -19,24 +24,26 @@ SVC_Handler:
 .global activate
 activate:
     /* Save kernel state */
-    mrs ip, psr
-    push {r4, r5, r6, r7, r8, r9, r10, r11, ip, lr}
+    save_kernel_state
 
     /* Load user state */
     ldmia r0!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}
     msr psp, r0
 
-    /* check the situaion and determine the transition */
-	mov r0, #0xfffffff0
-	cmp lr, r0                      @ lr - 0xfffffff0
-
-	/* if "lr" does not point to exception return, then switch to process stack */
-	ittt ls                         @ "ls" condition means unsinged lower or the same
-	movls r0, #3
-	msrls control, r0
-	isbls
-
     bx lr
+
+
+.global task_init_env
+task_init_env:
+	save_kernel_state
+
+	/* switch to process stack */
+	msr psp, r0
+	mov r0, #3
+	msr control, r0
+	isb
+	bl syscall
+	bx lr
 
 
 

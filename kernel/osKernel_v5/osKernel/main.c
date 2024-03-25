@@ -1,34 +1,30 @@
 /******************************************************************************/
 /*! @addtogroup Group2
-    @file       context_sw.h
+    @file       main.c
     @brief      
-    @date       2024/03/19
+    @date       2024/03/25
     @author     Development Dept at Tokyo
     @par        Revision
     $Id$
     @par        Copyright (C)
     Japan CashMachine Co, Limited. All rights reserved.
 ******************************************************************************/
+#include <stdint.h>
+#include "log.h"
+#include "osKernel.h"
 
-
-#ifndef _CONTEXT_SW_H_
-#define _CONTEXT_SW_H_
-#ifdef __cplusplus
-extern "C"
+int main()
 {
-#endif
 
-#include "stdint.h"
-/* CODE */
-extern uint32_t *activate(uint32_t *stack);
-extern void task_init_env(uint32_t *stack);
-extern void syscall();
+    logInit();
+    logPrintf("osKernel \n");
+    
 
-
-#ifdef __cplusplus
+    while (1)
+    {
+        /* code */
+    }
+    
 }
-#endif
-#endif
-
 
 

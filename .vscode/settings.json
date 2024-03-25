@@ -34,7 +34,8 @@
       "segger_rtt.h": "c",
       "oskernel.h": "c",
       "nrf52840.h": "c",
-      "context_sw.h": "c"
+      "context_sw.h": "c",
+      "string": "c"
     },
     
     "C_Cpp.errorSquiggles": "disabled",
