@@ -19,6 +19,10 @@ extern "C"
 
 /* CODE */
 #include <stdint.h>
+#include "nrf52840.h"
+#include "cmsis_gcc.h"
+#include "core_cm4.h"
+
 /* for Variable */
 #define __I     volatile const  /* Only read */
 #define __O     volatile        /* Only write */
@@ -28,6 +32,8 @@ extern "C"
 #define __OM    volatile        /* Only write */
 #define __IOM   volatile        /* Read wirte */
 
+
+/*---------------- UART -------------------*/
 typedef struct UartType_s
 {
     __OM  uint32_t TASKS_STARTRX;     /* Start UART receiver */
@@ -67,6 +73,7 @@ typedef struct UartType_s
     __IM  uint32_t RESERVED11[17];
     __IOM uint32_t CONFIG;            /* configuration of parity and hardware flow control */
 }UartType_t, *UartType_p;
+
 
 /* UART Register*/
 #define UART_BASE_ADDRESS 0x40002000
@@ -144,18 +151,129 @@ typedef struct UartType_s
 #define UART_CONFIG_STOP_ONE        (0 << UART_CONFIG_STOP_POS)
 #define UART_CONFIG_STOP_TWO        (1 << UART_CONFIG_STOP_POS)
 
+
+
 #define uart0 ((UartType_t*) UART_BASE_ADDRESS)     
+/*---------------- UART -------------------*/
 
-/*********/
-/*  USB  */
-/*********/
+/*---------------- SYSTICK ----------------*/
+#define BUS_FREQ    64000000
+
+#define SYSTICK_CTRL_ENB        0
+#define SYSTICK_CTRL_TICKINT    1
+#define SYSTICK_CTRL_CLKSOURCE  2
+#define SYSTICK_CTRL_COUNTFLAG  16
+
+#define SYSTICK_CTRL_COUNTER_EN         (1 << SYSTICK_CTRL_ENB)
+#define SYSTICK_CTRL_COUNTER_DIS        (0 << SYSTICK_CTRL_ENB)
+#define SYSTICK_CTRL_TICKINIT_EN        (1 << SYSTICK_CTRL_TICKINT)
+#define SYSTICK_CTRL_TICKINIT_DIS       (0 << SYSTICK_CTRL_TICKINT)
+#define SYSTICK_CTRL_CLKSRC_PROCESSOR   (1 << SYSTICK_CTRL_CLKSOURCE)
+#define SYSTICK_CTRL_CLKSRC_EXTERNAL    (0 << SYSTICK_CTRL_CLKSOURCE)
+/*---------------- SYSTICK -----------------*/
+/* CONTROL REGISTER */
+#define CTRL_INITERRUPT                (*((volatile uint32_t*) 0xE000ED04))
+#define SYSTICK_SET_POS         26
+/* */
+
+/* GPIO */
+
+#define GPIO_PORT0_BASE     0x50000000
+#define GPIO_PORT1_BASE     0x50000300
+#define GPIO_PORT_OFFSET    0x504
+#define GPIO_PORT0_ADDR     GPIO_PORT0_BASE + GPIO_PORT_OFFSET
+#define GPIO_PORT1_ADDR     GPIO_PORT1_BASE + GPIO_PORT_OFFSET
+
+typedef struct GPIO_PIN_TYPE_S
+{
+    __IOM uint32_t DIR          : 1;
+    __IOM uint32_t INPUT        : 1;
+    __IOM uint32_t PULL         : 2;
+    __IOM uint32_t reserved1    : 4;
+    __IOM uint32_t DRIVE        : 3;
+    __IOM uint32_t reserved2    : 5;
+    __IOM uint32_t SENSE        : 2;
+    __IOM uint32_t reserved3    : 14;
+}GpioPinType_t, *GpioPinType_p;
+
+typedef struct GPIO_PORT_TYPE_S
+{
+    __IM  uint32_t reserved0[321];      // 0x000 - 0x500
+    __IOM uint32_t OUT;                 // write gpio port
+    __IOM uint32_t OUTSET;              // set individual bits in gpio port
+    __IOM uint32_t OUTCLR;              // clear individual bits in gpio port
+    __IM  uint32_t IN;                  // Read gpio port
+    __IOM uint32_t DIR;                 // direction of gpio port
+    __IOM uint32_t DIRSET;              // dir set register
+    __IOM uint32_t DIRCLR;              // dir clear register
+    __IOM uint32_t LATCH;               // latch register indicating what gpio pins that have met the criteria set in the PIN_CNF[n].SENSE register
+    __IOM uint32_t DETECTMODE;          // select between default DETECT signal behavior and LDETECT mode
+    __IOM uint32_t Reserved1[118];      // 0x528 - 0x6fc
+    __IOM GpioPinType_t PIN_CNF[32];    // Config of gpio pins
+}GpioPortType_t, *GpioPortType_p;
+
+#define port0   ((GpioPortType_t*)(GPIO_PORT0_BASE))
+#define port1   ((GpioPortType_t*)(GPIO_PORT1_BASE))
+
+/* ------------------------------------------------ */
+
+/* GPIOTE */
+#define GPIOTE_BASE 0x40006000
+
+typedef struct GPIOTE_CONFIG_REG_S
+{
+    __IOM uint32_t MODE      : 2;
+    __IM  uint32_t RESERVED0 : 6;
+    __IOM uint32_t PSEL      : 5;
+    __IOM uint32_t PORT      : 1;
+    __IM  uint32_t RESERVED1 : 2;
+    __IOM uint32_t POLARIRY  : 2;
+    __IM  uint32_t RESERVED2 : 2;
+    __IOM uint32_t OUTINIT   : 1;
+    __IM  uint32_t RESERVED3 : 11;
+}GpioTECfgReg_t, *GpioTECfgReg_p;
+
+typedef struct GPIOTE_TYPE_S
+{
+    __IOM uint32_t TASK_OUT[8];
+    __IM  uint32_t RESERVED0[4];
+
+    __IOM uint32_t TASK_SET[8];
+    __IM  uint32_t RESERVED1[4];
+    
+    __IOM uint32_t TASK_CLR[8];
+    __IM  uint32_t RESERVED2[4];
+    
+    __IOM uint32_t EVENTS_IN[8];
+    __IM  uint32_t RESERVED3[23];
+    
+    __IOM uint32_t EVENTS_PORT;
+    __IM  uint32_t RESERVED4[97];
+    
+    __IOM uint32_t INTENSET;
+    __IOM uint32_t INTENCLR;
+    __IM  uint32_t RESERVED5[129];
+    __IOM uint32_t CONFIG[8];
+}GpioTEType_t, *GpioTEType_p;
+
+#define gpiote ((GpioTEType_t*) GPIOTE_BASE)
+
+/* ----------------------------------------------- */
+
+/* I2C */
+
+/* ----------------------------------------------- */
+
+/* SPI */
+
+/* ----------------------------------------------- */
+
+/* USBD */
+#define USBD_ADDR_BASE  0x40027000
 
 
 
-
-
-
-
+/* ----------------------------------------------- */
 #ifdef __cplusplus
 }
 #endif

@@ -8,6 +8,7 @@ CSW_DIR=./context_switch
 MUL_DIR=./multitasking
 OSK_DIR=./osKernel
 INC_COMMON=./include
+NRF_LIB=../../
 
 
 LINKER_SCRIPT=kernel.ld
@@ -62,6 +63,8 @@ INC_FOLDER=-I$(INC_COMMON)\
 	-I$(CSW_DIR)\
 	-I$(MUL_DIR)\
 	-I$(OSK_DIR)\
+	-I$(NRF_LIB)/components/toolchain/cmsis/include\
+	-I$(NRF_LIB)/modules/nrfx/mdk\
 
 LIBS=-lc -lm -lnosys
 

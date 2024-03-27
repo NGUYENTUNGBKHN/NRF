@@ -21,6 +21,10 @@ __isr_vector:
     .long   0
     .long   0
     .long   SVC_Handler
+    .long   Debug_Handler
+    .long   0
+    .long   PendSV_Handler
+    .long   Systick_Handler
 
     .size __isr_vector, . - __isr_vector
 
@@ -112,6 +116,24 @@ UsageFault_handler:
 SVC_Handler:
     b   .
     .size SVC_Handler, . - SVC_Handler
+
+    .weak Debug_Handler
+    .type Debug_Handler, %function
+Debug_Handler:
+    b   .
+    .size Debug_Handler, . - Debug_Handler
+
+    .weak PendSV_Handler
+    .type PendSV_Handler, %function
+PendSV_Handler:
+    b   .
+    .size PendSV_Handler, . - PendSV_Handler
+
+    .weak Systick_Handler
+    .type Systick_Handler, %function
+Systick_Handler:
+    b   .
+    .size Systick_Handler, . - Systick_Handler
 
 .end
 
